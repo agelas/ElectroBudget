@@ -1,6 +1,7 @@
 import { Grid, Paper } from '@mantine/core';
 import IncomeLineGraph from './IncomeLineGraph';
 import IncomeStackBar from './IncomeStackBar';
+import PayTimeline from './Timeline';
 
 export default function NonessntialGraphs() {
     return (
@@ -26,7 +27,7 @@ export default function NonessntialGraphs() {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.dark[4]
                 })}>
-                    3
+                    <PayTimeline />
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
