@@ -1,6 +1,8 @@
 import { Timeline, Text } from "@mantine/core";
 import { Cash, FileDollar } from "tabler-icons-react";
 
+//TODO: Change bullet icon colors, should be responsive.
+
 export default function PayTimeline() {
     return(
         <Timeline active={1}>
