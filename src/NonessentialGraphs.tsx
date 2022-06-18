@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@mantine/core';
+import { Grid, Paper, ScrollArea } from '@mantine/core';
 import IncomeLineGraph from './IncomeLineGraph';
 import IncomeStackBar from './IncomeStackBar';
 import PayTimeline from './Timeline';
@@ -36,7 +36,9 @@ export default function NonessntialGraphs() {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.dark[4]
                 })}>
-                    <CostStack />
+                    <ScrollArea style={{height: 200}}>
+                        <CostStack />
+                    </ScrollArea>
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
