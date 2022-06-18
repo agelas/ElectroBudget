@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Button, ScrollArea } from '@mantine/core';
+import { Stack, Button } from '@mantine/core';
 
 export default function CostStack() {
     return(

@@ -3,6 +3,7 @@ import IncomeLineGraph from './IncomeLineGraph';
 import IncomeStackBar from './IncomeStackBar';
 import PayTimeline from './Timeline';
 import CostStack from './CostStack';
+import RingGraph from './RingGraph';
 
 export default function NonessntialGraphs() {
     return (
@@ -46,7 +47,7 @@ export default function NonessntialGraphs() {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.dark[4]
                 })}>
-                    5
+                    <RingGraph />
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
