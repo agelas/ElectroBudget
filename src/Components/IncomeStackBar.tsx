@@ -1,5 +1,5 @@
 import { FlexibleWidthXYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries } from "react-vis";
-import '../node_modules/react-vis/dist/style.css';
+import '../../node_modules/react-vis/dist/style.css';
 
 //At some point maybe add DiscreteColorLegend if it doesn't screw up the formatting too much
 

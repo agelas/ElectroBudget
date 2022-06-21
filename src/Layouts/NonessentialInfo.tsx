@@ -17,22 +17,22 @@ export default function NonessentialInfo() {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.pink[4]
                 })}
-            > 1 </Paper>
+            > Paychecks to Date: </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
                     backgroundColor: theme.colors.violet[4]
                 })}
-            > 2 </Paper>
+            > Discretionary to Date: </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
                     backgroundColor: theme.colors.cyan[4]
                 })}
-            > 3 </Paper>
+            > Spent this Period: </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
                     backgroundColor: theme.colors.teal[4]
                 })}
-            > 4 </Paper>
+            > Available Now: </Paper>
         </SimpleGrid>
         <Space h="xl" />
         <NonessntialGraphs />
