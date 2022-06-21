@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
-import Home from "./Home";
+import Home from "./Layouts/Home";
 
 export default function App() {
     const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');

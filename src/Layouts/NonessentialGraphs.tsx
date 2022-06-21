@@ -1,10 +1,10 @@
 import { Grid, Paper, ScrollArea } from '@mantine/core';
-import IncomeLineGraph from './IncomeLineGraph';
-import IncomeStackBar from './IncomeStackBar';
-import PayTimeline from './Timeline';
-import CostStack from './CostStack';
-import RingGraph from './RingGraph';
-import Inputter from './Inputter';
+import IncomeLineGraph from '../Components/IncomeLineGraph';
+import IncomeStackBar from '../Components/IncomeStackBar';
+import PayTimeline from '../Components/Timeline';
+import CostStack from '../Components/CostStack';
+import RingGraph from '../Components/RingGraph';
+import Inputter from '../Components/Inputter';
 
 export default function NonessntialGraphs() {
     return (
