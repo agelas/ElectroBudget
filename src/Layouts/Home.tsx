@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppShell, Navbar, Header, Footer, ActionIcon, Title, useMantineColorScheme, Group} from '@mantine/core';
 import { MainLinks, OtherLinks } from './NavLinks';
-import NonessentialInfo from './NonessentialInfo';
+import NonEssentialBroker from './NonessentialBroker';
 import {Sun, MoonStars } from 'tabler-icons-react';
 
 function Home() {
@@ -38,7 +38,7 @@ function Home() {
         </Header>
       }
     >
-      <NonessentialInfo />
+      <NonEssentialBroker />
 
     </AppShell>
   );

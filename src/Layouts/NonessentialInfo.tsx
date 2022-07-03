@@ -1,10 +1,16 @@
 import React from 'react';
-import { SimpleGrid, Paper, Space } from '@mantine/core';
-import NonessntialGraphs from './NonessentialGraphs';
+import { SimpleGrid, Paper, useMantineColorScheme } from '@mantine/core';
 
-export default function NonessentialInfo() {
+export interface InfoProps {
+    numPaychecks: number,
+    discretionaryToDate: number,
+    availableNow: number
+}
+
+export default function NonessentialInfo(props: InfoProps) {
+    const {colorScheme} = useMantineColorScheme();
     return (
-        <>
+        
         <SimpleGrid
             cols={4}
             spacing={12}
@@ -15,27 +21,28 @@ export default function NonessentialInfo() {
         >
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.pink[4]
+                    backgroundColor: colorScheme === 'dark' ? theme.colors.pink[8] : theme.colors.pink[4]
                 })}
-            > Paychecks to Date: </Paper>
+            > Paychecks to Date: {props.numPaychecks}
+            </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.violet[4]
+                    backgroundColor: colorScheme === 'dark' ? theme.colors.violet[8] : theme.colors.violet[4]
                 })}
-            > Discretionary to Date: </Paper>
+            > Discretionary to Date: {props.discretionaryToDate}
+            </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.cyan[4]
+                    backgroundColor: colorScheme === 'dark' ? theme.colors.cyan[8] : theme.colors.cyan[4]
                 })}
             > Spent this Period: </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.teal[4]
+                    backgroundColor: colorScheme === 'dark' ? theme.colors.teal[8] : theme.colors.teal[4]
                 })}
-            > Available Now: </Paper>
+            > Available Now: {props.availableNow}
+            </Paper>
         </SimpleGrid>
-        <Space h="xl" />
-        <NonessntialGraphs />
-        </>
+        
     )
 }

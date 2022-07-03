@@ -6,7 +6,7 @@ import CostStack from '../Components/CostStack';
 import RingGraph from '../Components/RingGraph';
 import Inputter from '../Components/Inputter';
 
-export default function NonessntialGraphs() {
+export default function NonessntialDisplays() {
     return (
         <Grid gutter="lg">
             <Grid.Col span={4}>
