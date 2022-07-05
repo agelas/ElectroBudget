@@ -3,10 +3,6 @@ import { Space } from "@mantine/core";
 import NonessntialDisplays from "./NonessentialDisplays";
 import NonessentialInfo, {InfoProps} from "./NonessentialInfo";
 
-import pay1 from '../SampleData/SampleData1.json';
-import pay2 from '../SampleData/SampleData2.json';
-import pay3 from '../SampleData/SampleData3.json';
-
 // Nice little helper function to return an object inside a nested object assuming you know the path
 const getNestedObect = (nestedObj: any, pathArr: any[]) => {
     return pathArr.reduce((obj, key) => (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
@@ -19,7 +15,7 @@ function computeDiscretionaryToDate(dataArray: any[]): number {
 
     function calcDiscretionarySum(item: any): number {
         let percentages = getNestedObect(item, ["Breakdown"]);
-        let multiplier = percentages[1]; // The % of the paycheck is for nonessentials is the second number in that array
+        let multiplier = percentages[1]; // The % of the paycheck allocated for nonessentials is the second number in that array
         return sum += multiplier * getNestedObect(item, ["PaycheckAmount"]);
     }
     return +(sum.toFixed(2)); // Need the +() weirdness to keep the return of .toFixed() as a number instead of string
@@ -31,6 +27,7 @@ function computeAvailableNow(dataArray: any[]): number {
     let lastDoc = dataArray[dataArray.length - 1];
 
     let percentages = getNestedObect(lastDoc, ["Breakdown"]);
+    console.log(dataArray)
     let multiplier = percentages[1];
     let currentNonessentialAmount = +(multiplier * getNestedObect(lastDoc, ["PaycheckAmount"])).toFixed(2);
 
@@ -39,25 +36,64 @@ function computeAvailableNow(dataArray: any[]): number {
     return sum;
 }
 
+function formPayArray(dataArray: any[]): Array<any> {
+    let payArray = []
+    for (let i = 0; i < dataArray.length; i++) {
+        payArray.push({x: i, y: getNestedObect(dataArray[i], ["PaycheckAmount"])})
+    }
+
+    return payArray;
+}
+
 export default function NonEssentialBroker() {
 
     const [data, setData] = useState<any>([]);
+    const [dataLoaded, setDataLoaded] = useState<boolean>(false);
     const [infoData, setInfoData] = useState<InfoProps>({numPaychecks: 0, discretionaryToDate: 0, availableNow: 0});
+    //const [formattedPaycheck, setFormattedPaycheck] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            let response = await fetch('data.json');
+            let json = await response.json(); 
+            return { success: true, data: json }; 
+        } catch (error) {
+            console.log(error);
+            return { success: false };
+        }
+    }
 
     //First one sets/fetches the data
     useEffect( () => {
-        setData([pay1, pay2, pay3])
+        (async () => {
+            setDataLoaded(false);
+            let res = await fetchData();
+            if (res.success) {
+                console.log(res.data);
+                setData(res.data);
+                setDataLoaded(true);
+            }
+        })();
+        
     }, [])
 
     //Second one fills in the data and sets the right variables
     useEffect( () => {
-        var length = data.length
-        var discretionary = computeDiscretionaryToDate(data)
-        var available = computeAvailableNow(data)
+        if(data.length === 0) {
+            console.log('the event loop weird')
+            setInfoData({numPaychecks: 0, discretionaryToDate: 0, availableNow: 0})
+        } else {
+            var length = data.length
+            var discretionary = computeDiscretionaryToDate(data)
+            var available = computeAvailableNow(data)
+            var arr = formPayArray(data)
+            console.log(arr)
+            setInfoData({numPaychecks: length, discretionaryToDate: discretionary, availableNow: available})
+        }
     
-        setInfoData({numPaychecks: length, discretionaryToDate: discretionary, availableNow: available})
+        
         // eslint-disable-next-line
-    }, [])
+    }, [data, dataLoaded])
 
     return (
         <>

@@ -1,5 +1,9 @@
 import {FlexibleWidthXYPlot, LineMarkSeries, XAxis, YAxis} from 'react-vis';
 
+export interface LineGraphProps {
+    payPeriods: Array<[]>,
+    paySpent: Array<[]>
+}
 
 export default function IncomeLineGraph() {
     const data = [
