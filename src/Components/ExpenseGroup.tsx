@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Group, ActionIcon, Text, Paper, Switch } from "@mantine/core";
 import { Coffee } from "tabler-icons-react";
 
-interface ExpenseGroupProps {
-    expenseType: string;
+export interface ExpenseGroupProps {
+    expenseType: string,
+    name: string,
+    cost: number,
+    active: boolean,
+    key: number
 }
 
-function NonEssentialToggle() {
+function NonEssentialToggle(props: any) {
+    const [checked, setChecked] = useState<boolean>(Boolean(props.active))
+    
     return(
-        <Switch color='cyan' label='Purchased' />
+        <Switch checked={checked} onChange={(event) => setChecked(event.currentTarget.checked)} color='cyan' label='Purchased' />
     )
 }
 
@@ -18,7 +24,7 @@ function EssentialRecurringToggle() {
     )
 }
 
-export default function ExpenseGroup({expenseType} : ExpenseGroupProps) {
+export default function ExpenseGroup(props: ExpenseGroupProps) {
     return(
         <Paper radius="md" p="xs">
             <Group position='apart'>
@@ -27,14 +33,14 @@ export default function ExpenseGroup({expenseType} : ExpenseGroupProps) {
                         <Coffee />
                     </ActionIcon>
                     <Text>
-                        Scooter 
+                        {props.name} 
                     </Text>
                 </Group>
                 <Group position='right'>
-                    {expenseType === 'nonessential' && <NonEssentialToggle />}
-                    {expenseType === 'essentialRecurring' && <EssentialRecurringToggle />}
+                    {props.expenseType === 'NonEssential' && <NonEssentialToggle active={props.active}/>}
+                    {props.expenseType === 'EssentialRecurring' && <EssentialRecurringToggle />}
                     <Text>
-                        $620.00
+                        $ {props.cost}
                     </Text>
                 </Group>
             </Group>

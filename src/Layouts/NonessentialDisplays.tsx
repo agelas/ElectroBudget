@@ -2,7 +2,7 @@ import { Grid, Paper, ScrollArea } from '@mantine/core';
 import IncomeLineGraph, { GraphProps } from '../Components/IncomeLineGraph';
 import IncomeStackBar from '../Components/IncomeStackBar';
 import PayTimeline from '../Components/Timeline';
-import CostStack from '../Components/CostStack';
+import CostStack, { CostStackInterface } from '../Components/CostStack';
 import RingGraph from '../Components/RingGraph';
 import Inputter from '../Components/Inputter';
 import { getNestedObject } from './NonessentialBroker';
@@ -31,16 +31,28 @@ function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
     return spentArray;
 }
 
+// Retrives array of expenditures
+function getExpenseItems(dataArray: any[]): Array<any> {
+    let expenseArray = [];
+    let lastDoc = dataArray[dataArray.length - 1];
+    expenseArray = getNestedObject(lastDoc, ["ExpenseItems"]);
+    return expenseArray;
+}
+
 export default function NonessntialDisplays(props: DisplayData) {
     
     let graphData: GraphProps = {payPeriods: [], paySpent: []}
+    let stackData: CostStackInterface = {expenditures: []}
 
     console.log(props.graphData);
     if(props.graphData) {
         const linePay = formPayArray(props.graphData);
         const lineSpent = formNonEssentialSpentArray(props.graphData)
+        const expenses = getExpenseItems(props.graphData)
 
         graphData = {payPeriods: linePay, paySpent: lineSpent}
+        stackData = {expenditures: expenses}
+        console.log(stackData)
     }
 
 
@@ -76,7 +88,7 @@ export default function NonessntialDisplays(props: DisplayData) {
                     backgroundColor: theme.colors.dark[4]
                 })}>
                     <ScrollArea style={{height: 200}}>
-                        <CostStack />
+                        {props.graphData ? <CostStack {...stackData}/> : 'Loading'}
                     </ScrollArea>
                 </Paper>
             </Grid.Col>

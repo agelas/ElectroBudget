@@ -1,12 +1,29 @@
 import React from "react";
 import { Stack } from '@mantine/core';
-import ExpenseGroup from "./ExpenseGroup";
+import ExpenseGroup, { ExpenseGroupProps } from "./ExpenseGroup";
 
-export default function CostStack() {
+export interface CostStackInterface {
+    expenditures: Array<any>
+}
+
+export default function CostStack(props: CostStackInterface) {
+    console.log(props.expenditures)
+    var AllExpenses;
+
+    if(props.expenditures) {
+        AllExpenses = props.expenditures.map( (item, i) => {
+            return(
+                
+                <ExpenseGroup key={i} expenseType={item.Type} name={item.Name} cost={item.Cost} active={item.Active} /> 
+                
+            )
+        })
+    }
+
     return(
+        
         <Stack spacing="lg" sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0], height: 300})}>
-            <ExpenseGroup expenseType= 'nonessential'/>
-            <ExpenseGroup expenseType='essentialRecurring' />
+            {AllExpenses}
         </Stack>
     )
 }
