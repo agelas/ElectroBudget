@@ -1,20 +1,10 @@
 import { FlexibleWidthXYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries } from "react-vis";
 import '../../node_modules/react-vis/dist/style.css';
+import { GraphProps } from "./IncomeLineGraph";
 
 //At some point maybe add DiscreteColorLegend if it doesn't screw up the formatting too much
 
-export default function IncomeStackBar() {
-    const data1 = [
-        {x: 'P1', y: 10},
-        {x: 'P2', y: 10},
-        {x: 'P3', y: 10}
-    ]
-
-    const data2 = [
-        {x: 'P1', y: 4},
-        {x: 'P2', y: 6},
-        {x: 'P3', y: 4}
-    ]
+export default function IncomeStackBar(props: GraphProps) {
 
     return(
        <>
@@ -24,13 +14,13 @@ export default function IncomeStackBar() {
             <XAxis />
             <YAxis />
             <VerticalBarSeries
-                data={data1}
+                data={props.payPeriods}
                 barWidth={0.7}
                 color="#12939A"
                 
             />
             <VerticalBarSeries
-                data={data2}
+                data={props.paySpent}
                 barWidth={0.7}
                 color="#79C7E3"
             />

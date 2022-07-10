@@ -1,5 +1,5 @@
 import { Grid, Paper, ScrollArea } from '@mantine/core';
-import IncomeLineGraph, { LineGraphProps } from '../Components/IncomeLineGraph';
+import IncomeLineGraph, { GraphProps } from '../Components/IncomeLineGraph';
 import IncomeStackBar from '../Components/IncomeStackBar';
 import PayTimeline from '../Components/Timeline';
 import CostStack from '../Components/CostStack';
@@ -33,14 +33,14 @@ function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
 
 export default function NonessntialDisplays(props: DisplayData) {
     
-    let lineData: LineGraphProps = {payPeriods: [], paySpent: []}
+    let graphData: GraphProps = {payPeriods: [], paySpent: []}
 
     console.log(props.graphData);
     if(props.graphData) {
         const linePay = formPayArray(props.graphData);
         const lineSpent = formNonEssentialSpentArray(props.graphData)
 
-        lineData = {payPeriods: linePay, paySpent: lineSpent}
+        graphData = {payPeriods: linePay, paySpent: lineSpent}
     }
 
 
@@ -51,7 +51,7 @@ export default function NonessntialDisplays(props: DisplayData) {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.dark[4]
                 })}>
-                    {props.graphData ? <IncomeLineGraph {...lineData}/> : 'Loading'}
+                    {props.graphData ? <IncomeLineGraph {...graphData}/> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={5}>
@@ -59,7 +59,7 @@ export default function NonessntialDisplays(props: DisplayData) {
                 sx={(theme) => ({
                     backgroundColor: theme.colors.dark[4]
                 })}>
-                    <IncomeStackBar />
+                    <IncomeStackBar {...graphData}/>
                 </Paper>
             </Grid.Col>
             <Grid.Col span={3}>
