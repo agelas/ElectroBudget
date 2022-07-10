@@ -5,7 +5,8 @@ export interface LineGraphProps {
     paySpent: Array<[]>
 }
 
-export default function IncomeLineGraph() {
+export default function IncomeLineGraph(props: LineGraphProps) {
+    /*
     const data = [
         {x: 0, y: 8},
         {x: 1, y: 8},
@@ -32,11 +33,12 @@ export default function IncomeLineGraph() {
         {x: 8, y: 2},
         {x: 9, y: 0}
       ];
+      */
 
     return (
         <FlexibleWidthXYPlot height={300} >
-            <LineMarkSeries data={data} style={{ fill: 'none', strokeWidth: 3}}/>
-            <LineMarkSeries data={data2} color="pink" curve={'curveMonotoneX'} style={{ fill: 'none', strokeWidth: 3, }}/>
+            <LineMarkSeries data={props.payPeriods} style={{ fill: 'none', strokeWidth: 3}}/>
+            <LineMarkSeries data={props.paySpent} color="pink" curve={'curveMonotoneX'} style={{ fill: 'none', strokeWidth: 3, }}/>
             
             <XAxis title="Pay Period"/>
             <YAxis />

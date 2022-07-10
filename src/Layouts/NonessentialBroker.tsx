@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Space } from "@mantine/core";
-import NonessntialDisplays from "./NonessentialDisplays";
+import NonessntialDisplays, { DisplayData } from "./NonessentialDisplays";
 import NonessentialInfo, {InfoProps} from "./NonessentialInfo";
 
 // Nice little helper function to return an object inside a nested object assuming you know the path
-const getNestedObect = (nestedObj: any, pathArr: any[]) => {
+export const getNestedObject = (nestedObj: any, pathArr: any[]) => {
     return pathArr.reduce((obj, key) => (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
 }
 
@@ -14,9 +14,9 @@ function computeDiscretionaryToDate(dataArray: any[]): number {
     dataArray.forEach(calcDiscretionarySum)
 
     function calcDiscretionarySum(item: any): number {
-        let percentages = getNestedObect(item, ["Breakdown"]);
+        let percentages = getNestedObject(item, ["Breakdown"]);
         let multiplier = percentages[1]; // The % of the paycheck allocated for nonessentials is the second number in that array
-        return sum += multiplier * getNestedObect(item, ["PaycheckAmount"]);
+        return sum += multiplier * getNestedObject(item, ["PaycheckAmount"]);
     }
     return +(sum.toFixed(2)); // Need the +() weirdness to keep the return of .toFixed() as a number instead of string
 }
@@ -26,23 +26,14 @@ function computeAvailableNow(dataArray: any[]): number {
     let sum = 0;
     let lastDoc = dataArray[dataArray.length - 1];
 
-    let percentages = getNestedObect(lastDoc, ["Breakdown"]);
-    console.log(dataArray)
+    let percentages = getNestedObject(lastDoc, ["Breakdown"]);
+    //console.log(dataArray)
     let multiplier = percentages[1];
-    let currentNonessentialAmount = +(multiplier * getNestedObect(lastDoc, ["PaycheckAmount"])).toFixed(2);
+    let currentNonessentialAmount = +(multiplier * getNestedObject(lastDoc, ["PaycheckAmount"])).toFixed(2);
 
-    sum = getNestedObect(lastDoc, ["RolloverNonEssential"]) + currentNonessentialAmount;
+    sum = getNestedObject(lastDoc, ["RolloverNonEssential"]) + currentNonessentialAmount;
 
     return sum;
-}
-
-function formPayArray(dataArray: any[]): Array<any> {
-    let payArray = []
-    for (let i = 0; i < dataArray.length; i++) {
-        payArray.push({x: i, y: getNestedObect(dataArray[i], ["PaycheckAmount"])})
-    }
-
-    return payArray;
 }
 
 export default function NonEssentialBroker() {
@@ -50,6 +41,7 @@ export default function NonEssentialBroker() {
     const [data, setData] = useState<any>([]);
     const [dataLoaded, setDataLoaded] = useState<boolean>(false);
     const [infoData, setInfoData] = useState<InfoProps>({numPaychecks: 0, discretionaryToDate: 0, availableNow: 0});
+    const [graphData, setGraphData] = useState<DisplayData>({graphData: []})
     //const [formattedPaycheck, setFormattedPaycheck] = useState([]);
 
     const fetchData = async () => {
@@ -63,7 +55,7 @@ export default function NonEssentialBroker() {
         }
     }
 
-    //First one sets/fetches the data
+    //First one fecthes and sets the data
     useEffect( () => {
         (async () => {
             setDataLoaded(false);
@@ -86,9 +78,10 @@ export default function NonEssentialBroker() {
             var length = data.length
             var discretionary = computeDiscretionaryToDate(data)
             var available = computeAvailableNow(data)
-            var arr = formPayArray(data)
-            console.log(arr)
+            
             setInfoData({numPaychecks: length, discretionaryToDate: discretionary, availableNow: available})
+            setGraphData({graphData: data})
+            console.log('graph data set??')
         }
     
         
@@ -97,9 +90,13 @@ export default function NonEssentialBroker() {
 
     return (
         <>
+        {data.length > 0 &&
+            <>
             <NonessentialInfo {...infoData}/>
             <Space h="xl" />
-            <NonessntialDisplays />
+            <NonessntialDisplays {...graphData}/>
+            </>
+        }
         </>
     )
 }
