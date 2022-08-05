@@ -22,7 +22,7 @@ export default function CostStack(props: CostStackInterface) {
 
     return(
         
-        <Stack spacing="lg" sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0], height: 300})}>
+        <Stack spacing="lg" sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0], height: (props.expenditures.length*40)})}>
             {AllExpenses}
         </Stack>
     )

@@ -21,7 +21,7 @@ export default function RingGraph(props: RingProps) {
                     {value: (props.spent/props.total*100), color: 'red'}
                 ]}
             />
-            <Text size="lg">$662.83 spent out of $800</Text>
+            <Text size="lg">{props.spent} spent out of {(props.total).toFixed(2)}</Text>
         </Group>
     )
 }
