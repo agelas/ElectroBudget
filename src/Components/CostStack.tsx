@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack } from '@mantine/core';
 import ExpenseGroup from "./ExpenseGroup";
 import { Text } from "@mantine/core";
