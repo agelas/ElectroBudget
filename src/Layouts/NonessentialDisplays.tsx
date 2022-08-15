@@ -94,7 +94,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={4}>
                 <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     {props.graphData ? <IncomeLineGraph {...graphData}/> : 'Loading'}
                 </Paper>
@@ -102,7 +102,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={5}>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <IncomeStackBar {...graphData}/>
                 </Paper>
@@ -110,7 +110,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={3}>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <PayTimeline />
                 </Paper>
@@ -118,7 +118,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={4}>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <ScrollArea style={{height: 200}}>
                         {props.graphData ? <CostStack {...stackData}/> : 'Loading'}
@@ -128,7 +128,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={4}>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     {props.graphData ? <RingGraph {...ringData}/> : 'Loading'}
                 </Paper>
@@ -136,7 +136,7 @@ export default function NonessntialDisplays(props: DisplayData) {
             <Grid.Col span={4}>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: theme.colors.dark[4]
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <Inputter />
                 </Paper>
