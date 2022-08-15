@@ -4,16 +4,30 @@ import { Cash, FileDollar } from "tabler-icons-react";
 //TODO: Change bullet icon colors, should be responsive.
 
 export default function PayTimeline() {
+    const d = new Date();
+    const day = d.getDate();
+    let daysNextPay:number, daysLastPay:number;
+
+    if (day <= 15) {
+        daysNextPay = 15 - day;
+
+        daysLastPay = day;
+    } else {
+        let lastDayOfMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
+        daysNextPay = lastDayOfMonth - day;
+
+        daysLastPay = day - 15;
+    }
+
     return(
         <Timeline active={1}>
             <Timeline.Item bullet={<Cash size={24}/>} bulletSize={36} title='Last Paycheck'>
-                <Text color='dimmed'>5 days ago</Text>
+                <Text color='dimmed'>{daysLastPay} days ago</Text>
             </Timeline.Item>
 
             <Timeline.Item bullet={<FileDollar size={24}/>} bulletSize={36} title='Next Paycheck'>
-                <Text color='dimmed'>In 3 days</Text>
+                <Text color='dimmed'>In {daysNextPay} days</Text>
             </Timeline.Item>
-
         </Timeline>
     )
 }
