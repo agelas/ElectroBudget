@@ -26,7 +26,12 @@ function formPayArray(dataArray: any[]): Array<any> {
 // Retrieves and formats data on how much money was spent in the non-essential expenditure category.
 function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
     let spentArray = [];
-    for (let i = 0; i < dataArray.length; i++) {
+    let paycheckConstraint = 0; // let's just show the last 7 for now
+    if(dataArray.length > 7) {
+        paycheckConstraint = dataArray.length - 7;
+    }
+
+    for (let i = paycheckConstraint; i < dataArray.length; i++) {
         spentArray.push({x: i+1, y: getNestedObject(dataArray[i], ["NonEssentialSpent"])});
     }
 
@@ -71,7 +76,7 @@ function getTotalAmount(dataArray: any[]): number {
 export default function NonessntialDisplays(props: DisplayData) {
     
     let graphData: GraphProps = {payPeriods: [], paySpent: []}
-    let stackData: CostStackInterface = {expenditures: []}
+    let stackData: CostStackInterface = {expenditures: [], display: 'NonEssential'}
     let ringData: RingProps = {total: 0, spent: 0}
 
     console.log(props.graphData);
@@ -83,7 +88,7 @@ export default function NonessntialDisplays(props: DisplayData) {
         const totalAllocation = getTotalAmount(props.graphData) 
 
         graphData = {payPeriods: linePay, paySpent: lineSpent}
-        stackData = {expenditures: expenses}
+        stackData = {expenditures: expenses, display: 'NonEssential'}
         ringData = {total: totalAllocation, spent: currSpent}
         console.log(totalAllocation, currSpent)
     }
