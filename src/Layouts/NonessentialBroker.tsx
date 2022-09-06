@@ -42,27 +42,36 @@ export default function NonEssentialBroker() {
     const [dataLoaded, setDataLoaded] = useState<boolean>(false);
     const [infoData, setInfoData] = useState<InfoProps>({numPaychecks: 0, discretionaryToDate: 0, availableNow: 0});
     const [graphData, setGraphData] = useState<DisplayData>({graphData: []})
-    //const [formattedPaycheck, setFormattedPaycheck] = useState([]);
 
     const fetchData = async () => {
         try {
-            let response = await fetch('data.json');
-            let json = await response.json(); 
-            return { success: true, data: json }; 
+             let response: string = 'wat';
+             
+             window.api.requestData('Renderer Requests Data');
+             
+             console.log(response);
+            return { success: true, data: response }; 
         } catch (error) {
             console.log(error);
-            return { success: false };
+            let response = await fetch('data.json');
+            let json = await response.json();
+            return { success: false, data: json };
         }
     }
 
-    //First one fecthes and sets the data
+    //First one fetches and sets the data
     useEffect( () => {
         (async () => {
             setDataLoaded(false);
             let res = await fetchData();
             if (res.success) {
                 console.log(res.data);
-                setData(res.data);
+                window.api.localData('local-Data', (rawData: any) => {
+                    let mainData = rawData;
+                    console.log(mainData);
+                    setData(mainData);
+                 })
+                
                 setDataLoaded(true);
             }
         })();
