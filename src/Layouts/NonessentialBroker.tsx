@@ -45,11 +45,15 @@ export default function NonEssentialBroker() {
 
     const fetchData = async () => {
         try {
-             let response: string = 'wat';
+             let response: any;
              
              window.api.requestData('Renderer Requests Data');
+             window.api.localData(function(event:any, result:any) {
+                response = result;
+                console.log(response);
+                setData(response);
+             })
              
-             console.log(response);
             return { success: true, data: response }; 
         } catch (error) {
             console.log(error);
@@ -59,6 +63,7 @@ export default function NonEssentialBroker() {
         }
     }
 
+
     //First one fetches and sets the data
     useEffect( () => {
         (async () => {
@@ -66,12 +71,7 @@ export default function NonEssentialBroker() {
             let res = await fetchData();
             if (res.success) {
                 console.log(res.data);
-                window.api.localData('local-Data', (rawData: any) => {
-                    let mainData = rawData;
-                    console.log(mainData);
-                    setData(mainData);
-                 })
-                
+                setData(res.data)
                 setDataLoaded(true);
             }
         })();
