@@ -4,7 +4,7 @@ import { MainLinks, OtherLinks } from './NavLinks';
 import NonEssentialBroker from './NonessentialBroker';
 import {Sun, MoonStars } from 'tabler-icons-react';
 
-function Home() {
+function NonEssentials() {
   const {colorScheme, toggleColorScheme} = useMantineColorScheme();
 
   return (
@@ -44,4 +44,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default NonEssentials;
