@@ -14,7 +14,11 @@ export interface DisplayData {
 // Retrieves and formats data on how much you were paid. Used for line graph and bar graph. 
 function formPayArray(dataArray: any[]): Array<any> {
     let payArray = [];
-    for (let i = 0; i < dataArray.length; i++) {
+    let paycheckConstraint = 0; // let's just show the last 7 for now
+    if(dataArray.length > 7) {
+        paycheckConstraint = dataArray.length - 7;
+    }
+    for (let i = paycheckConstraint; i < dataArray.length; i++) {
         let percentages = getNestedObject(dataArray[i], ["Breakdown"]);
         let multiplier = percentages[0];
         payArray.push({x: i+1, y: multiplier*getNestedObject(dataArray[i], ["PaycheckAmount"])});
@@ -52,7 +56,8 @@ function getCurrentSpent(dataArray: any[]): number {
     if(dataArray.length > 0) {
         let lastDoc = dataArray[dataArray.length - 1];
         expenseArray = getNestedObject(lastDoc, ["ExpenseItems"]);
-        expenseArray.forEach((element: any) => {
+        var filteredExpenseArray = expenseArray.filter((expense: { Type: string; }) => expense.Type === 'NonEssential')
+        filteredExpenseArray.forEach((element: any) => {
         spent = spent + getNestedObject(element, ["Cost"]);
     });
     }

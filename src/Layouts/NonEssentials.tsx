@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppShell, Navbar, Header, Footer, ActionIcon, Title, useMantineColorScheme, Group} from '@mantine/core';
 import { MainLinks, OtherLinks } from './NavLinks';
 import NonEssentialBroker from './NonessentialBroker';
@@ -39,7 +38,6 @@ function NonEssentials() {
       }
     >
       <NonEssentialBroker />
-
     </AppShell>
   );
 }
