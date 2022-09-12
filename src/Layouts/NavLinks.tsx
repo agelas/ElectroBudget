@@ -35,14 +35,14 @@ function MainLink({icon, color, label} : MainLinkProps) {
 }
 
 const primaryData = [
-    { icon: <Coffee size={16} />, color: 'blue', label: 'Non-Essentials' },
-    { icon: <SmartHome size={16} />, color: 'teal', label: 'Essentials' },
-    { icon: <Coin size={16} />, color: 'violet', label: 'Savings' },
+    { icon: <Coffee size={16} />, color: 'blue', label: 'Non-Essentials'},
+    { icon: <SmartHome size={16} />, color: 'teal', label: 'Essentials'},
+    { icon: <Coin size={16} />, color: 'violet', label: 'Savings'},
 ];
 
 const secondaryData = [
-    { icon: <Settings size={16} />, color: 'grape', label: 'Settings' },
-    { icon: <BrandGithub size={16} />, color: '#2d5e86', label: 'Code' },
+    { icon: <Settings size={16} />, color: 'grape', label: 'Settings', onClick: (e: { preventDefault: () => void; })=> {e.preventDefault();window.location.href="/"} },
+    { icon: <BrandGithub size={16} />, color: '#2d5e86', label: 'Code', onClick: (e: { preventDefault: () => void; })=> {e.preventDefault();window.location.href="https://github.com/agelas/FinDash"} },
 ]
 
 export function MainLinks() {

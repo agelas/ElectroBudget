@@ -1,4 +1,3 @@
-import React from "react";
 import { RingProgress, Text, Group } from "@mantine/core";
 
 export interface RingProps{
