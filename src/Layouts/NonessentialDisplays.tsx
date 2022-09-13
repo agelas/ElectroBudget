@@ -78,7 +78,7 @@ function getTotalAmount(dataArray: any[]): number {
     return pay * multiplier;
 }
 
-export default function NonessntialDisplays(props: DisplayData) {
+export default function NonessentialDisplays(props: DisplayData) {
     
     let graphData: GraphProps = {payPeriods: [], paySpent: []}
     let stackData: CostStackInterface = {expenditures: [], display: 'NonEssential'}

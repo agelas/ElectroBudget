@@ -2,6 +2,7 @@ import {AppShell, Navbar, Header, Footer, ActionIcon, Title, useMantineColorSche
 import { MainLinks, OtherLinks } from './NavLinks';
 import NonEssentialBroker from './NonessentialBroker';
 import {Sun, MoonStars } from 'tabler-icons-react';
+import EssentialBroker from './EssentialBroker';
 
 function NonEssentials() {
   const {colorScheme, toggleColorScheme} = useMantineColorScheme();
@@ -37,7 +38,7 @@ function NonEssentials() {
         </Header>
       }
     >
-      <NonEssentialBroker />
+      <EssentialBroker />
     </AppShell>
   );
 }

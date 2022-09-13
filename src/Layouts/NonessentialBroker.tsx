@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Space } from "@mantine/core";
-import NonessntialDisplays, { DisplayData } from "./NonessentialDisplays";
+import NonessentialDisplays, { DisplayData } from "./NonessentialDisplays";
 import NonessentialInfo, {InfoProps} from "./NonessentialInfo";
 
 // Nice little helper function to return an object inside a nested object assuming you know the path
@@ -103,7 +103,7 @@ export default function NonEssentialBroker() {
             <>
             <NonessentialInfo {...infoData}/>
             <Space h="xl" />
-            <NonessntialDisplays {...graphData}/>
+            <NonessentialDisplays {...graphData}/>
             </>
         }
         </>

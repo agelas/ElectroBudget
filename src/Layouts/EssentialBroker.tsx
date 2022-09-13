@@ -1,5 +1,6 @@
 import { Space } from "@mantine/core";
 import EssentialInfo, { InfoProps } from "./EssentialInfo";
+import EssentialDisplays from "./EssentialDisplays";
 import { ReactElement } from 'react';
 
 export default function EssentialBroker(): ReactElement<any, any> {
@@ -14,6 +15,7 @@ export default function EssentialBroker(): ReactElement<any, any> {
     <>
       <EssentialInfo {...infoData}/>
       <Space h="xl" />
+      <EssentialDisplays />
     </>
   );
 }
