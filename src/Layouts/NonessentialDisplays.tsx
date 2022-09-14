@@ -5,7 +5,7 @@ import PayTimeline from '../Components/Timeline';
 import CostStack, { CostStackInterface } from '../Components/CostStack';
 import RingGraph, { RingProps } from '../Components/RingGraph';
 import Inputter from '../Components/Inputter';
-import { Categories, formGraphArray, formPayArray, getCurrentSpent, getExpenseItems, getTotalAmount } from '../Utils/ParsingFunctions';
+import { Categories, formGraphArray, getCurrentSpent, getExpenseItems, getTotalAmount } from '../Utils/ParsingFunctions';
 
 export interface DisplayData {
     graphData: Array<any>;
