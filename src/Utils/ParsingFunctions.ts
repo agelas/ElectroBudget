@@ -59,8 +59,8 @@ export function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
 }
 
 export enum Categories {
-    NonEssential,
     Essential,
+    NonEssential,
     Saving,
     None,
 }
@@ -92,13 +92,13 @@ export function getExpenseItems(dataArray: any[]): Array<any> {
     return expenseArray;
 }
 
-export function getCurrentSpent(dataArray: any[]): number {
+export function getCurrentSpent(dataArray: any[], category: string): number {
     let expenseArray = [];
     let spent = 0;
     if(dataArray.length > 0) {
         let lastDoc = dataArray[dataArray.length - 1];
         expenseArray = getNestedObject(lastDoc, ["ExpenseItems"]);
-        var filteredExpenseArray = expenseArray.filter((expense: { Type: string; }) => expense.Type === 'NonEssential')
+        var filteredExpenseArray = expenseArray.filter((expense: { Type: string; }) => expense.Type === category)
         filteredExpenseArray.forEach((element: any) => {
         spent = spent + getNestedObject(element, ["Cost"]);
     });
