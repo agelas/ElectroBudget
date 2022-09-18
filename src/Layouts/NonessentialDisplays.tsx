@@ -22,7 +22,7 @@ export default function NonessentialDisplays(props: DisplayData) {
         const linePay = formGraphArray(props.graphData, Categories.NonEssential, "PaycheckAmount")
         const lineSpent = formGraphArray(props.graphData, Categories.None, "NonEssentialSpent");
         const expenses = getExpenseItems(props.graphData);
-        const currSpent = getCurrentSpent(props.graphData);
+        const currSpent = getCurrentSpent(props.graphData, "NonEssential");
         const totalAllocation = getTotalAmount(props.graphData); 
 
         graphData = {payPeriods: linePay, paySpent: lineSpent}

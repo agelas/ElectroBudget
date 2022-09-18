@@ -39,6 +39,7 @@ function NonEssentials() {
       }
     >
       <NonEssentialBroker />
+      <EssentialBroker />
     </AppShell>
   );
 }
