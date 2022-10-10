@@ -3,9 +3,11 @@ import { MainLinks, OtherLinks } from './NavLinks';
 import NonEssentialBroker from './NonessentialBroker';
 import {Sun, MoonStars } from 'tabler-icons-react';
 import EssentialBroker from './EssentialBroker';
+import { useState } from 'react';
 
-function NonEssentials() {
+function MainApp() {
   const {colorScheme, toggleColorScheme} = useMantineColorScheme();
+  const [currentPage, setCurrentPage] = useState<string>('Non-Essentials');
 
   return (
     <AppShell
@@ -15,7 +17,7 @@ function NonEssentials() {
       navbar={
         <Navbar p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300}}>
           <Navbar.Section grow mt = "xs">
-            <MainLinks />
+            <MainLinks setterFunction={setCurrentPage}/>
           </Navbar.Section>
           <Navbar.Section>
             <OtherLinks />
@@ -38,10 +40,10 @@ function NonEssentials() {
         </Header>
       }
     >
-      <NonEssentialBroker />
-      <EssentialBroker />
+      {currentPage === 'Non-Essentials' && <NonEssentialBroker />}
+      {currentPage === 'Essentials' && <EssentialBroker />}
     </AppShell>
   );
 }
 
-export default NonEssentials;
+export default MainApp;

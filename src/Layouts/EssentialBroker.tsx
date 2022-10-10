@@ -27,8 +27,9 @@ export default function EssentialBroker(): ReactElement<any, any> {
 
   //Second one fills in the data and sets the right variables
   useEffect( () => {
-      if(data.length === 0) {
+      if(data) {
           console.log('the event loop weird')
+          setGraphData({graphData: data})
       } else {
           setGraphData({graphData: data})
           console.log('graph data set??')

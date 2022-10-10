@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
-import NonEssentials from "./Layouts/NonEssentials";
+import MainApp from "./Layouts/MainApp";
 
 export default function App() {
     const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
@@ -9,7 +9,7 @@ export default function App() {
     return(
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-                <NonEssentials />
+                <MainApp />
             </MantineProvider>
         </ColorSchemeProvider>
     );
