@@ -14,7 +14,7 @@ export interface DisplayData {
 export default function NonessentialDisplays(props: DisplayData) {
     
     let graphData: GraphProps = {payPeriods: [], paySpent: []}
-    let stackData: CostStackInterface = {expenditures: [], display: 'NonEssential'}
+    let stackData: CostStackInterface = {expenditures: [], displayType: 'NonEssential'}
     let ringData: RingProps = {total: 0, spent: 0}
 
     console.log(props.graphData);
@@ -26,7 +26,7 @@ export default function NonessentialDisplays(props: DisplayData) {
         const totalAllocation = getTotalAmount(props.graphData); 
 
         graphData = {payPeriods: linePay, paySpent: lineSpent}
-        stackData = {expenditures: expenses, display: 'NonEssential'}
+        stackData = {expenditures: expenses, displayType: 'NonEssential'}
         ringData = {total: totalAllocation, spent: currSpent}
         console.log(totalAllocation, currSpent)
     }

@@ -4,7 +4,7 @@ import { Text } from "@mantine/core";
 
 export interface CostStackInterface {
     expenditures: Array<any>
-    display: string
+    displayType: string
 }
 
 export default function CostStack(props: CostStackInterface) {
@@ -12,7 +12,7 @@ export default function CostStack(props: CostStackInterface) {
     var AllExpenses;
 
     if(props.expenditures) {
-        var FilteredExpenses = props.expenditures.filter(expense => expense.Type === 'NonEssential');
+        var FilteredExpenses = props.expenditures.filter(expense => expense.Type === props.displayType);
 
         AllExpenses = FilteredExpenses.map( (item, i) => {
             return( 
