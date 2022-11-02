@@ -5,7 +5,7 @@ import PayTimeline from '../Components/Timeline';
 import CostStack, { CostStackInterface } from '../Components/CostStack';
 import RingGraph, { RingProps } from '../Components/RingGraph';
 import Inputter from '../Components/Inputter';
-import { Categories, formGraphArray, getCurrentSpent, getExpenseItems, getTotalAmount } from '../Utils/ParsingFunctions';
+import { turnIntoArray, Categories, formGraphArray, getCurrentSpent, getExpenseItems, getTotalAmount } from '../Utils/ParsingFunctions';
 
 export interface DisplayData {
     graphData: Array<any>;
@@ -19,11 +19,12 @@ export default function NonessentialDisplays(props: DisplayData) {
 
     console.log(props.graphData);
     if(props.graphData) {
-        const linePay = formGraphArray(props.graphData, Categories.NonEssential, "PaycheckAmount")
-        const lineSpent = formGraphArray(props.graphData, Categories.None, "NonEssentialSpent");
-        const expenses = getExpenseItems(props.graphData);
-        const currSpent = getCurrentSpent(props.graphData, "NonEssential");
-        const totalAllocation = getTotalAmount(props.graphData); 
+        const graphArrayData = turnIntoArray(props.graphData);
+        const linePay = formGraphArray(graphArrayData, Categories.NonEssential, "PaycheckAmount")
+        const lineSpent = formGraphArray(graphArrayData, Categories.None, "NonEssentialSpent");
+        const expenses = getExpenseItems(graphArrayData);
+        const currSpent = getCurrentSpent(graphArrayData, "NonEssential");
+        const totalAllocation = getTotalAmount(graphArrayData); 
 
         graphData = {payPeriods: linePay, paySpent: lineSpent}
         stackData = {expenditures: expenses, displayType: 'NonEssential'}

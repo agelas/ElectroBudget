@@ -2,7 +2,7 @@ import { Grid, Paper, ScrollArea } from '@mantine/core';
 import { GraphProps } from '../Components/IncomeLineGraph';
 import { RingProps } from '../Components/RingGraph';
 import PayTimeline from '../Components/Timeline';
-import { Categories, formGraphArray, getCurrentSpent, getTotalAmount, getExpenseItems } from '../Utils/ParsingFunctions';
+import { turnIntoArray, Categories, formGraphArray, getCurrentSpent, getTotalAmount, getExpenseItems } from '../Utils/ParsingFunctions';
 import { DisplayData } from './NonessentialDisplays';
 import IncomeLineGraph from '../Components/IncomeLineGraph';
 import RingGraph from '../Components/RingGraph';
@@ -16,11 +16,12 @@ export default function EssentialDisplays(props: DisplayData) {
     let stackData: CostStackInterface = {expenditures: [], displayType: 'Essential'}
 
     if(props.graphData) {
-        const linePay = formGraphArray(props.graphData, Categories.Essential, "PaycheckAmount");
-        const lineSpent = formGraphArray(props.graphData, Categories.None, "EssentialSpent");
-        const currSpent = getCurrentSpent(props.graphData, "Essential");
-        const totalAllocation = getTotalAmount(props.graphData);
-        const essentialExpenses = getExpenseItems(props.graphData);
+        const graphArrayData = turnIntoArray(props.graphData)
+        const linePay = formGraphArray(graphArrayData, Categories.Essential, "PaycheckAmount");
+        const lineSpent = formGraphArray(graphArrayData, Categories.None, "EssentialSpent");
+        const currSpent = getCurrentSpent(graphArrayData, "Essential");
+        const totalAllocation = getTotalAmount(graphArrayData);
+        const essentialExpenses = getExpenseItems(graphArrayData);
 
         graphData = {payPeriods: linePay, paySpent: lineSpent};
         ringData = {total: totalAllocation, spent: currSpent};
