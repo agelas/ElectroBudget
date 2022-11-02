@@ -1,10 +1,21 @@
 import { getNestedObject } from "./NestedAccess";
 
+// Turns data object into an array that all the other functions expect
+export function turnIntoArray(data: any[]) {
+    let dataArray = Object.entries(data).map(([index, obj]) => ({index, ...obj}));
+    return dataArray;
+}
+
 // Sums up all the paycheck amounts for Discretionary to Date 
 export function computeDiscretionaryToDate(dataArray: any[]): number {
     let sum = 0;
-    dataArray.forEach(calcDiscretionarySum)
-
+    try{
+        dataArray.forEach(calcDiscretionarySum);
+    } catch(err) {
+        console.log(err);
+        return 0;
+    }
+    
     function calcDiscretionarySum(item: any): number {
         let percentages = getNestedObject(item, ["Breakdown"]);
         let multiplier = percentages[1]; // The % of the paycheck allocated for nonessentials is the second number in that array
@@ -16,15 +27,19 @@ export function computeDiscretionaryToDate(dataArray: any[]): number {
 // Sums up rollovers for Available Now
 export function computeAvailableNow(dataArray: any[]): number {
     let sum = 0;
-    let lastDoc = dataArray[dataArray.length - 1];
 
-    let percentages = getNestedObject(lastDoc, ["Breakdown"]);
-    let multiplier = percentages[1];
-    let currentNonessentialAmount = +(multiplier * getNestedObject(lastDoc, ["PaycheckAmount"])).toFixed(2);
+    try {
+        let lastDoc = dataArray[dataArray.length - 1];
+        let percentages = getNestedObject(lastDoc, ["Breakdown"]);
+        let multiplier = percentages[1];
+        let currentNonessentialAmount = +(multiplier * getNestedObject(lastDoc, ["PaycheckAmount"])).toFixed(2);
 
-    sum = getNestedObject(lastDoc, ["RolloverNonEssential"]) + currentNonessentialAmount;
-
-    return sum;
+        sum = getNestedObject(lastDoc, ["RolloverNonEssential"]) + currentNonessentialAmount;
+    } catch(err) {
+        console.log(err)
+    } finally {
+        return sum;
+    }
 }
 
 // Retrieves and formats data on how much you were paid. Used for line graph and bar graph. 
@@ -39,7 +54,7 @@ export function formPayArray(dataArray: any[]): Array<any> {
         let multiplier = percentages[0];
         payArray.push({x: i+1, y: multiplier*getNestedObject(dataArray[i], ["PaycheckAmount"])});
     }
-
+    console.log(payArray);
     return payArray;
 }
 
@@ -65,7 +80,7 @@ export enum Categories {
     None,
 }
 
-export function formGraphArray(dataArray: any[], category:Categories, value:string): Array<any> {
+export function formGraphArray(dataArray: any[], category: Categories, value:string): Array<any> {
     let graphArray = [];
     let constraint = 0;
     let multiplier = 1;
@@ -81,6 +96,7 @@ export function formGraphArray(dataArray: any[], category:Categories, value:stri
         }
         graphArray.push({x: i+1, y: multiplier*getNestedObject(dataArray[i], [value])});
     }
+    console.log(dataArray);
     return graphArray;
 }
 
