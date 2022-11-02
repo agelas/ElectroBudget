@@ -61,5 +61,4 @@ app.on('window-all-closed', () => {
   }
 });
 
-// I suspect the scope of the below doesn't know wtf BrowserWindow is and should maybe be in the app.WhenRead() block
 
