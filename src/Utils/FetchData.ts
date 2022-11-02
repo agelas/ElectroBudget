@@ -7,7 +7,6 @@ export const fetchData = async (setter: React.Dispatch<any>) => {
          window.api.requestData('Renderer Requests Data');
          window.api.localData(function(_event:any, result:any) {
             response = result;
-            console.log(response);
             setter(response);
          })
          
