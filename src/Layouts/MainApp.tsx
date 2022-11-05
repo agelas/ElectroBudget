@@ -8,7 +8,7 @@ import { fetchData } from "../Utils/FetchData";
 
 function MainApp() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [currentPage, setCurrentPage] = useState<string>('Essentials');
+  const [currentPage, setCurrentPage] = useState<string>('Non-Essentials');
   const [appData, setAppData] = useState<any>([]);
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
 

@@ -20,24 +20,24 @@ export default function EssentialInfo(props: InfoProps) {
         >
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === 'dark' ? '#0A222F' : '#46A5D8'
+                    backgroundColor: colorScheme === 'dark' ? '#F4694D' : '#F89E8C'
+                })}
+            > Essentials Spending
+            </Paper>
+            <Paper radius="md" p="md"
+                sx={(theme) => ({
+                    backgroundColor: colorScheme === 'dark' ? '#F4694D' : '#F89E8C'
                 })}
             > Paychecks to Date: {props.numPaychecks}
             </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === 'dark' ? '#176C54' : '#2BCA9D'
-                })}
-            > Discretionary to Date: {props.discretionaryToDate}
-            </Paper>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: colorScheme === 'dark' ? '#9D2F2F' : '#E3A1A1'
+                    backgroundColor: colorScheme === 'dark' ? '#F4694D' : '#F89E8C'
                 })}
             > Spent this Period: </Paper>
             <Paper radius="md" p="md"
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === 'dark' ? '#6F7A66' : '#B7BEB1'
+                    backgroundColor: colorScheme === 'dark' ? '#F4694D' : '#F89E8C'
                 })}
             > Available Now: {props.availableNow}
             </Paper>
