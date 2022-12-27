@@ -3,6 +3,7 @@ import { MainLinks, OtherLinks } from './NavLinks';
 import NonEssentialBroker from './NonessentialBroker';
 import { Sun, MoonStars } from 'tabler-icons-react';
 import EssentialBroker from './EssentialBroker';
+import SavingsBroker from './SavingsBroker';
 import { useCallback, useEffect, useState } from 'react';
 import { fetchData } from "../Utils/FetchData";
 
@@ -68,6 +69,7 @@ function MainApp() {
 
           {currentPage === 'Non-Essentials' && <NonEssentialBroker {...appData} />}
           {currentPage === 'Essentials' && <EssentialBroker {...appData} />}
+          {currentPage === 'Savings' && <SavingsBroker />}
         </AppShell>
       }
     </>
