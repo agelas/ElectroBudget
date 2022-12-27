@@ -31,34 +31,34 @@ export default function EssentialDisplays(props: DisplayData) {
     return (
         <Grid gutter="lg">
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
-                    {props.graphData ? <IncomeLineGraph {...graphData}/> : 'Loading'}
-            </Paper>
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
+                        {props.graphData ? <IncomeLineGraph {...graphData}/> : 'Loading'}
+                </Paper>
             </Grid.Col>
             <Grid.Col span={5}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}
-                style={{height: 332}}>
-                    {props.graphData ? <RingGraph {...ringData}/> : 'Loading'}
-            </Paper>
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}
+                    style={{height: 332}}>
+                        {props.graphData ? <RingGraph {...ringData}/> : 'Loading'}
+                </Paper>
             </Grid.Col>
             <Grid.Col span={3}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <PayTimeline />
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <ScrollArea style={{height: 200}}>
                         {props.graphData ? <CostStack {...stackData}/> : 'Loading'}
@@ -66,9 +66,9 @@ export default function EssentialDisplays(props: DisplayData) {
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                 })}>
                     <Inputter />
                 </Paper>
