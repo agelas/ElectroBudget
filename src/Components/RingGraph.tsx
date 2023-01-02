@@ -20,7 +20,7 @@ export default function RingGraph(props: RingProps) {
                     {value: (props.spent/props.total*100), color: 'red'}
                 ]}
             />
-            <Text size="lg"> ${props.spent} spent out of ${(props.total).toFixed(2)}</Text>
+            <Text size="lg"> ${props.spent.toFixed(2)} spent out of ${(props.total).toFixed(2)}</Text>
         </Group>
     )
 }
