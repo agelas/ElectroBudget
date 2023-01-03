@@ -1,12 +1,12 @@
 import { RingProgress, Text, Group } from "@mantine/core";
 
-export interface RingProps{
+export interface RingProps {
     total: number;
     spent: number;
 }
 
 export default function RingGraph(props: RingProps) {
-    return(
+    return (
         <Group>
             <RingProgress
                 size={200}
@@ -16,8 +16,8 @@ export default function RingGraph(props: RingProps) {
                     <Text size='md' align='center'>Funds Used</Text>
                 }
                 sections={[
-                    {value: ((props.total-props.spent)/props.total*100), color: 'cyan'},
-                    {value: (props.spent/props.total*100), color: 'red'}
+                    { value: ((props.total - props.spent) / props.total * 100), color: 'cyan' },
+                    { value: (props.spent / props.total * 100), color: 'red' }
                 ]}
             />
             <Text size="lg"> ${props.spent.toFixed(2)} spent out of ${(props.total).toFixed(2)}</Text>
