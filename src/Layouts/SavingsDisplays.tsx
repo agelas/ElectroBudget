@@ -3,16 +3,16 @@ import PayTimeline from "../Components/Timeline";
 import SavingsAccounts from "../Components/SavingsAccounts";
 
 export default function SavingsDisplays() {
-    
+
     return (
         <Grid gutter="lg">
             <Grid.Col span={9}>
                 <Paper radius="md" p="md"
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
+                    })}>
                     <Center>
-                    <SavingsAccounts />
+                        <SavingsAccounts />
                     </Center>
                 </Paper>
             </Grid.Col>
@@ -20,7 +20,7 @@ export default function SavingsDisplays() {
                 <Paper radius="md" p="md"
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
+                    })}>
                     <PayTimeline />
                 </Paper>
             </Grid.Col>
