@@ -12,23 +12,23 @@ export interface DisplayData {
 }
 
 export default function NonessentialDisplays(props: DisplayData) {
-    
-    let graphData: GraphProps = {payPeriods: [], paySpent: []}
-    let stackData: CostStackInterface = {expenditures: [], displayType: 'NonEssential'}
-    let ringData: RingProps = {total: 0, spent: 0}
+
+    let graphData: GraphProps = { payPeriods: [], paySpent: [] }
+    let stackData: CostStackInterface = { expenditures: [], displayType: 'NonEssential' }
+    let ringData: RingProps = { total: 0, spent: 0 }
 
     console.log(props.graphData);
-    if(props.graphData) {
+    if (props.graphData) {
         const graphArrayData = turnIntoArray(props.graphData);
         const linePay = formGraphArray(graphArrayData, Categories.NonEssential, "PaycheckAmount")
         const lineSpent = formGraphArray(graphArrayData, Categories.None, "NonEssentialSpent");
         const expenses = getExpenseItems(graphArrayData);
         const currSpent = getCurrentSpent(graphArrayData, "NonEssential");
-        const totalAllocation = getTotalAmount(graphArrayData); 
+        const totalAllocation = getTotalAmount(graphArrayData);
 
-        graphData = {payPeriods: linePay, paySpent: lineSpent}
-        stackData = {expenditures: expenses, displayType: 'NonEssential'}
-        ringData = {total: totalAllocation, spent: currSpent}
+        graphData = { payPeriods: linePay, paySpent: lineSpent }
+        stackData = { expenditures: expenses, displayType: 'NonEssential' }
+        ringData = { total: totalAllocation, spent: currSpent }
         console.log(totalAllocation, currSpent)
     }
 
@@ -36,51 +36,51 @@ export default function NonessentialDisplays(props: DisplayData) {
         <Grid gutter="lg">
             <Grid.Col span={4}>
                 <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
-                    {props.graphData ? <IncomeLineGraph {...graphData}/> : 'Loading'}
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
+                    {props.graphData ? <IncomeLineGraph {...graphData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={5}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
-                    <IncomeStackBar {...graphData}/>
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
+                    <IncomeStackBar {...graphData} />
                 </Paper>
             </Grid.Col>
             <Grid.Col span={3}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
                     <PayTimeline />
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
-                    <ScrollArea style={{height: 200}}>
-                        {props.graphData ? <CostStack {...stackData}/> : 'Loading'}
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
+                    <ScrollArea style={{ height: 200 }}>
+                        {props.graphData ? <CostStack {...stackData} /> : 'Loading'}
                     </ScrollArea>
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
-                    {props.graphData ? <RingGraph {...ringData}/> : 'Loading'}
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
+                    {props.graphData ? <RingGraph {...ringData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
-            <Paper radius="md" p="md"
-                sx={(theme) => ({
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
-                })}>
+                <Paper radius="md" p="md"
+                    sx={(theme) => ({
+                        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
+                    })}>
                     <Inputter />
                 </Paper>
             </Grid.Col>

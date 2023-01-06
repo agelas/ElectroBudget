@@ -8,9 +8,9 @@ export interface InfoProps {
 }
 
 export default function NonessentialInfo(props: InfoProps) {
-    const {colorScheme} = useMantineColorScheme();
+    const { colorScheme } = useMantineColorScheme();
     return (
-        
+
         <SimpleGrid
             cols={4}
             spacing={12}
@@ -43,6 +43,6 @@ export default function NonessentialInfo(props: InfoProps) {
             > Available Now: {props.availableNow}
             </Paper>
         </SimpleGrid>
-        
+
     )
 }
