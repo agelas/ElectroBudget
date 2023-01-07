@@ -10,7 +10,6 @@ export default function PayTimeline() {
 
     if (day <= 15) {
         daysNextPay = 15 - day;
-
         daysLastPay = day;
     } else {
         let lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();

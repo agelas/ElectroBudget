@@ -2,7 +2,7 @@ import React from 'react';
 import { Coin, Coffee, SmartHome, Settings, BrandGithub } from 'tabler-icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
 
-export interface MainLinksProps{
+export interface MainLinksProps {
     setterFunction: React.Dispatch<any>;
 }
 
@@ -19,8 +19,8 @@ interface OtherLinkProps {
     label: string;
 }
 
-function MainLink({icon, color, label, dispatcher} : MainLinkProps) {
-    return(
+function MainLink({ icon, color, label, dispatcher }: MainLinkProps) {
+    return (
         <UnstyledButton
             sx={(theme) => ({
                 display: 'block',
@@ -34,7 +34,7 @@ function MainLink({icon, color, label, dispatcher} : MainLinkProps) {
                         theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
                 },
             })}
-            onClick={() => {dispatcher(label)}}
+            onClick={() => { dispatcher(label) }}
         >
             <Group>
                 <ThemeIcon color={color} variant="light">
@@ -46,8 +46,8 @@ function MainLink({icon, color, label, dispatcher} : MainLinkProps) {
     );
 }
 
-function OtherLink({icon, color, label} : OtherLinkProps) {
-    return(
+function OtherLink({ icon, color, label }: OtherLinkProps) {
+    return (
         <UnstyledButton
             sx={(theme) => ({
                 display: 'block',
@@ -73,14 +73,14 @@ function OtherLink({icon, color, label} : OtherLinkProps) {
 }
 
 const primaryData = [
-    { icon: <Coffee size={16} />, color: 'blue', label: 'Non-Essentials'},
-    { icon: <SmartHome size={16} />, color: 'teal', label: 'Essentials'},
-    { icon: <Coin size={16} />, color: 'violet', label: 'Savings'},
+    { icon: <Coffee size={16} />, color: 'blue', label: 'Non-Essentials' },
+    { icon: <SmartHome size={16} />, color: 'teal', label: 'Essentials' },
+    { icon: <Coin size={16} />, color: 'violet', label: 'Savings' },
 ];
 
 const secondaryData = [
-    { icon: <Settings size={16} />, color: 'grape', label: 'Settings', onClick: (e: { preventDefault: () => void; })=> {e.preventDefault();window.location.href="/"} },
-    { icon: <BrandGithub size={16} />, color: '#2d5e86', label: 'Code', onClick: (e: { preventDefault: () => void; })=> {e.preventDefault();window.location.href="https://github.com/agelas/FinDash"} },
+    { icon: <Settings size={16} />, color: 'grape', label: 'Settings', onClick: (e: { preventDefault: () => void; }) => { e.preventDefault(); window.location.href = "/" } },
+    { icon: <BrandGithub size={16} />, color: '#2d5e86', label: 'Code', onClick: (e: { preventDefault: () => void; }) => { e.preventDefault(); window.location.href = "https://github.com/agelas/FinDash" } },
 ]
 
 export function MainLinks(props: MainLinksProps) {

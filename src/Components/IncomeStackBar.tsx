@@ -6,25 +6,25 @@ import { GraphProps } from "./IncomeLineGraph";
 
 export default function IncomeStackBar(props: GraphProps) {
 
-    return(
-       <>
-        <FlexibleWidthXYPlot height={300} xType="ordinal">
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis />
-            <YAxis />
-            <VerticalBarSeries
-                data={props.payPeriods}
-                barWidth={0.7}
-                color="#12939A"
-                
-            />
-            <VerticalBarSeries
-                data={props.paySpent}
-                barWidth={0.7}
-                color="#79C7E3"
-            />
-        </FlexibleWidthXYPlot>
-       </> 
+    return (
+        <>
+            <FlexibleWidthXYPlot height={300} xType="ordinal">
+                <VerticalGridLines />
+                <HorizontalGridLines />
+                <XAxis />
+                <YAxis />
+                <VerticalBarSeries
+                    data={props.payPeriods}
+                    barWidth={0.7}
+                    color="#12939A"
+
+                />
+                <VerticalBarSeries
+                    data={props.paySpent}
+                    barWidth={0.7}
+                    color="#79C7E3"
+                />
+            </FlexibleWidthXYPlot>
+        </>
     )
 }

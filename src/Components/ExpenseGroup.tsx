@@ -12,20 +12,20 @@ export interface ExpenseGroupProps {
 
 function NonEssentialToggle(props: any) {
     const [checked, setChecked] = useState<boolean>(Boolean(props.active))
-    
-    return(
+
+    return (
         <Switch checked={checked} onChange={(event) => setChecked(event.currentTarget.checked)} color='cyan' label='Purchased' />
     )
 }
 
 function EssentialRecurringToggle() {
-    return(
-        <Switch color='cyan' label="Active"  />
+    return (
+        <Switch color='cyan' label="Active" />
     )
 }
 
 export default function ExpenseGroup(props: ExpenseGroupProps) {
-    return(
+    return (
         <Paper radius="md" p="xs">
             <Group position='apart'>
                 <Group>
@@ -33,11 +33,11 @@ export default function ExpenseGroup(props: ExpenseGroupProps) {
                         <Coffee />
                     </ActionIcon>
                     <Text>
-                        {props.name} 
+                        {props.name}
                     </Text>
                 </Group>
                 <Group position='right'>
-                    {props.expenseType === 'NonEssential' && <NonEssentialToggle active={props.active}/>}
+                    {props.expenseType === 'NonEssential' && <NonEssentialToggle active={props.active} />}
                     {props.expenseType === 'EssentialRecurring' && <EssentialRecurringToggle />}
                     <Text>
                         $ {props.cost}

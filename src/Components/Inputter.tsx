@@ -5,7 +5,7 @@ import ExpenseInput from "./ExpenseInput";
 
 export default function Inputter() {
 
-    return(
+    return (
         <>
             <Divider my="xs" label="Add Items" />
             <ExpenseInput />
@@ -14,7 +14,7 @@ export default function Inputter() {
                 <ActionIcon color="green" size="xl">
                     <CirclePlus />
                 </ActionIcon>
-                <ActionIcon color = "red" size="xl">
+                <ActionIcon color="red" size="xl">
                     <CircleMinus />
                 </ActionIcon>
             </Center>

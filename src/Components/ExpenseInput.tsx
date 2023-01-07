@@ -4,15 +4,15 @@ import { SquarePlus } from "tabler-icons-react";
 
 export default function ExpenseInput() {
 
-    return(
+    return (
         <Group>
             <TextInput placeholder="Expenditure" />
-            <NumberInput 
+            <NumberInput
                 defaultValue={0}
                 parser={(value) => value?.replace(/\$\s?|(,*)/g, '')}
-                formatter={(value) => 
+                formatter={(value) =>
                     !Number.isNaN(parseFloat(value as string)) ? `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                    : '$ '
+                        : '$ '
                 }
             />
             <ActionIcon color="teal">

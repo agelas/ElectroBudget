@@ -11,7 +11,7 @@ export interface SavingsAccountProps {
 
 export default function SavingsAccountPanel(props: SavingsAccountProps) {
     return (
-        <Paper radius="md" p="xs" style={{width: 280}}>
+        <Paper radius="md" p="xs" style={{ width: 280 }}>
             <Group>
                 <ActionIcon color="lime">
                     <BuildingBank />
@@ -27,7 +27,7 @@ export default function SavingsAccountPanel(props: SavingsAccountProps) {
             <Text size="xl">
                 ${props.goal} goal
             </Text>
-            <Progress color="violet" radius="md" size="xl" value={(props.currentPrincipal/props.goal) * 100} />
+            <Progress color="violet" radius="md" size="xl" value={(props.currentPrincipal / props.goal) * 100} />
         </Paper>
     );
 }
