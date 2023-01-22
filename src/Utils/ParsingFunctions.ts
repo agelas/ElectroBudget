@@ -130,7 +130,7 @@ export function getTotalAmount(dataArray: any[]): number {
         let lastDoc = dataArray[dataArray.length - 1];
         pay = getNestedObject(lastDoc, ["PaycheckAmount"]);
         let percentages = getNestedObject(lastDoc, ["Breakdown"]);
-        multiplier = percentages[1];
+        multiplier = percentages[1]; // TODO: everything will be 30%
     }
     
     return pay * multiplier;
