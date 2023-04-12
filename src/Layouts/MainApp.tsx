@@ -40,6 +40,17 @@ function MainApp() {
     fetchData();
   }, []);
 
+  const addExpenseItem = (newItem: any) => {
+    const updatedData = [...appData];
+    const targetPaycheckIndex = updatedData[updatedData.length - 1];
+
+    if (targetPaycheckIndex !== -1) {
+      updatedData[targetPaycheckIndex].ExpenseItems.push(newItem);
+    }
+
+    setAppData(updatedData);
+  }
+
   return (
     <>
       {dataLoaded && (
@@ -82,9 +93,9 @@ function MainApp() {
           }
         >
           {currentPage === "Non-Essentials" && (
-            <NonEssentialBroker {...appData} />
+            <NonEssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
           )}
-          {currentPage === "Essentials" && <EssentialBroker {...appData} />}
+          {currentPage === "Essentials" && <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />}
           {currentPage === "Savings" && <SavingsBroker />}
         </AppShell>
       )}
