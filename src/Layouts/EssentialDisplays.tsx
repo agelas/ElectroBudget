@@ -9,14 +9,14 @@ import RingGraph from '../Components/RingGraph';
 import CostStack, { CostStackInterface } from '../Components/CostStack';
 import Inputter from '../Components/Inputter';
 
-export default function EssentialDisplays(props: DisplayData) {
+export default function EssentialDisplays({appData, addExpenseItem}: DisplayData) {
 
     let graphData: GraphProps = { payPeriods: [], paySpent: [] };
     let ringData: RingProps = { total: 0, spent: 0 };
     let stackData: CostStackInterface = { expenditures: [], displayType: 'Essential' }
 
-    if (props.graphData) {
-        const graphArrayData = turnIntoArray(props.graphData)
+    if (appData) {
+        const graphArrayData = turnIntoArray(appData)
         const linePay = formGraphArray(graphArrayData, Categories.Essential, "PaycheckAmount");
         const lineSpent = formGraphArray(graphArrayData, Categories.None, "EssentialSpent");
         const currSpent = getCurrentSpent(graphArrayData, "Essential");
@@ -35,7 +35,7 @@ export default function EssentialDisplays(props: DisplayData) {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    {props.graphData ? <IncomeLineGraph {...graphData} /> : 'Loading'}
+                    {appData ? <IncomeLineGraph {...graphData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={5}>
@@ -44,7 +44,7 @@ export default function EssentialDisplays(props: DisplayData) {
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}
                     style={{ height: 332 }}>
-                    {props.graphData ? <RingGraph {...ringData} /> : 'Loading'}
+                    {appData ? <RingGraph {...ringData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={3}>
@@ -61,7 +61,7 @@ export default function EssentialDisplays(props: DisplayData) {
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
                     <ScrollArea style={{ height: 200 }}>
-                        {props.graphData ? <CostStack {...stackData} /> : 'Loading'}
+                        {appData ? <CostStack {...stackData} /> : 'Loading'}
                     </ScrollArea>
                 </Paper>
             </Grid.Col>
@@ -70,7 +70,7 @@ export default function EssentialDisplays(props: DisplayData) {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    <Inputter />
+                    <Inputter InputFunction={addExpenseItem}/>
                 </Paper>
             </Grid.Col>
         </Grid>

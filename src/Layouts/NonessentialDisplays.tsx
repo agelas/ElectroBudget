@@ -8,18 +8,18 @@ import Inputter from '../Components/Inputter';
 import { turnIntoArray, Categories, formGraphArray, getCurrentSpent, getExpenseItems, getTotalAmount } from '../Utils/ParsingFunctions';
 
 export interface DisplayData {
-    graphData: Array<any>;
+    appData: Array<any>;
+    addExpenseItem: (newItem: any) => void;
 }
 
-export default function NonessentialDisplays(props: DisplayData) {
+export default function NonessentialDisplays({appData, addExpenseItem}: DisplayData) {
 
     let graphData: GraphProps = { payPeriods: [], paySpent: [] }
     let stackData: CostStackInterface = { expenditures: [], displayType: 'NonEssential' }
     let ringData: RingProps = { total: 0, spent: 0 }
 
-    console.log(props.graphData);
-    if (props.graphData) {
-        const graphArrayData = turnIntoArray(props.graphData);
+    if (appData) {
+        const graphArrayData = turnIntoArray(appData);
         const linePay = formGraphArray(graphArrayData, Categories.NonEssential, "PaycheckAmount")
         const lineSpent = formGraphArray(graphArrayData, Categories.None, "NonEssentialSpent");
         const expenses = getExpenseItems(graphArrayData);
@@ -39,7 +39,7 @@ export default function NonessentialDisplays(props: DisplayData) {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    {props.graphData ? <IncomeLineGraph {...graphData} /> : 'Loading'}
+                    {appData ? <IncomeLineGraph {...graphData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={5}>
@@ -64,7 +64,7 @@ export default function NonessentialDisplays(props: DisplayData) {
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
                     <ScrollArea style={{ height: 200 }}>
-                        {props.graphData ? <CostStack {...stackData} /> : 'Loading'}
+                        {appData ? <CostStack {...stackData} /> : 'Loading'}
                     </ScrollArea>
                 </Paper>
             </Grid.Col>
@@ -73,7 +73,7 @@ export default function NonessentialDisplays(props: DisplayData) {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    {props.graphData ? <RingGraph {...ringData} /> : 'Loading'}
+                    {appData ? <RingGraph {...ringData} /> : 'Loading'}
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>
@@ -81,7 +81,7 @@ export default function NonessentialDisplays(props: DisplayData) {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    <Inputter />
+                    <Inputter InputFunction={addExpenseItem}/>
                 </Paper>
             </Grid.Col>
         </Grid>

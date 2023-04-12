@@ -1,12 +1,11 @@
 import { Space } from "@mantine/core";
 import EssentialInfo, { InfoProps } from "./EssentialInfo";
 import EssentialDisplays from "./EssentialDisplays";
-import { ReactElement } from 'react';
 import { DisplayData } from "./NonessentialDisplays";
 
-export default function EssentialBroker(props: any): ReactElement<any, any> {
+export default function EssentialBroker({appData, addExpenseItem}: DisplayData) {
 
-  var graphData: DisplayData = { graphData: props }
+  var graphData: DisplayData = { appData, addExpenseItem }
   let infoData: InfoProps = {
     numPaychecks: 7,
     discretionaryToDate: 200,
