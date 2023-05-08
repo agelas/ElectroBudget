@@ -13,7 +13,7 @@ export default function ExpenseInput( {InputFunction}: ExpenseInputInterface) {
   const handleSubmit = () => {
     const newItem = {
         Type: "NonEssential",
-        name: name,
+        Name: name,
         Cost: cost,
         Active: true,
     };
