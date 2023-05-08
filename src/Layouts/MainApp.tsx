@@ -42,12 +42,13 @@ function MainApp() {
 
   const addExpenseItem = (newItem: any) => {
     const updatedData = [...appData];
-    const targetPaycheckIndex = updatedData[updatedData.length - 1];
+    const lastIndex = updatedData.length - 1;
+    const targetPaycheck = updatedData[lastIndex];
 
-    if (targetPaycheckIndex !== -1) {
-      updatedData[targetPaycheckIndex].ExpenseItems.push(newItem);
+    if (lastIndex !== -1) {
+      targetPaycheck.ExpenseItems.push(newItem);
     }
-
+    console.log("Attempt at updating");
     setAppData(updatedData);
   }
 
