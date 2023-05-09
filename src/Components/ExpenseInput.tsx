@@ -3,26 +3,26 @@ import { TextInput, NumberInput, Group, ActionIcon } from "@mantine/core";
 import { SquarePlus } from "tabler-icons-react";
 
 export interface ExpenseInputInterface {
-    InputFunction: (newItem: any) => void;
+  InputFunction: (newItem: any) => void;
 }
 
-export default function ExpenseInput( {InputFunction}: ExpenseInputInterface) {
+export default function ExpenseInput({ InputFunction }: ExpenseInputInterface) {
   const [name, setName] = useState("");
   const [cost, setCost] = useState(0);
 
   const handleSubmit = () => {
     const newItem = {
-        Type: "NonEssential",
-        Name: name,
-        Cost: cost,
-        Active: true,
+      Type: "NonEssential",
+      Name: name,
+      Cost: cost,
+      Active: true,
     };
 
     InputFunction(newItem);
 
     setName("");
     setCost(0);
-  }
+  };
 
   return (
     <Group>

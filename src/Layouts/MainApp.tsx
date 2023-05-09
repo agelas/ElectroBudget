@@ -50,7 +50,7 @@ function MainApp() {
     }
     console.log("Attempt at updating");
     setAppData(updatedData);
-  }
+  };
 
   return (
     <>
@@ -94,9 +94,17 @@ function MainApp() {
           }
         >
           {currentPage === "Non-Essentials" && (
-            <NonEssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
+            <NonEssentialBroker
+              appData={appData}
+              addExpenseItem={addExpenseItem}
+            />
           )}
-          {currentPage === "Essentials" && <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />}
+          {currentPage === "Essentials" && (
+            <EssentialBroker
+              appData={appData}
+              addExpenseItem={addExpenseItem}
+            />
+          )}
           {currentPage === "Savings" && <SavingsBroker />}
         </AppShell>
       )}
