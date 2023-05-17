@@ -23,11 +23,14 @@ export default function NonessentialDisplays({
   appData,
   addExpenseItem,
 }: DisplayData) {
+  const dominantColor: string = "#5fb7bf";
+  const accentColor: string = "white";
+
   let graphData: GraphProps = {
     payPeriods: [],
     paySpent: [],
     payColor: "#5fb7bf",
-    spentColor: "white",
+    spentColor: accentColor,
   };
   let stackData: CostStackInterface = {
     expenditures: [],
@@ -36,8 +39,8 @@ export default function NonessentialDisplays({
   let ringData: RingProps = {
     total: 0,
     spent: 0,
-    totalColor: "#5fb7bf",
-    spentColor: "white",
+    totalColor: dominantColor,
+    spentColor: accentColor,
   };
 
   if (appData) {
@@ -59,15 +62,15 @@ export default function NonessentialDisplays({
     graphData = {
       payPeriods: linePay,
       paySpent: lineSpent,
-      payColor: "#5fb7bf",
-      spentColor: "white",
+      payColor: dominantColor,
+      spentColor: accentColor,
     };
     stackData = { expenditures: expenses, displayType: "NonEssential" };
     ringData = {
       total: totalAllocation,
       spent: currSpent,
-      totalColor: "#5fb7bf",
-      spentColor: "white",
+      totalColor: dominantColor,
+      spentColor: accentColor,
     };
     console.log(totalAllocation, currSpent);
   }

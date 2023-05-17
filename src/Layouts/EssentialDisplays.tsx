@@ -11,8 +11,11 @@ import Inputter from '../Components/Inputter';
 
 export default function EssentialDisplays({appData, addExpenseItem}: DisplayData) {
 
-    let graphData: GraphProps = { payPeriods: [], paySpent: [], payColor: "#50f15b", spentColor: "#b8f9bd" };
-    let ringData: RingProps = { total: 0, spent: 0, totalColor: "#50f15b", spentColor: "#b8f9bd" };
+    const dominantColor: string = '#50f15b';
+    const accentColor: string = '#b8f9bd';
+
+    let graphData: GraphProps = { payPeriods: [], paySpent: [], payColor: dominantColor, spentColor: accentColor };
+    let ringData: RingProps = { total: 0, spent: 0, totalColor: dominantColor, spentColor: accentColor };
     let stackData: CostStackInterface = { expenditures: [], displayType: 'Essential' }
 
     if (appData) {
@@ -23,8 +26,8 @@ export default function EssentialDisplays({appData, addExpenseItem}: DisplayData
         const totalAllocation = getTotalAmount(graphArrayData);
         const essentialExpenses = getExpenseItems(graphArrayData);
 
-        graphData = { payPeriods: linePay, paySpent: lineSpent, payColor: "#50f15b", spentColor: "#b8f9bd" };
-        ringData = { total: totalAllocation, spent: currSpent, totalColor: "#b8f9bd", spentColor: "#50f15b" };
+        graphData = { payPeriods: linePay, paySpent: lineSpent, payColor: dominantColor, spentColor: accentColor };
+        ringData = { total: totalAllocation, spent: currSpent, totalColor: accentColor, spentColor: dominantColor };
         stackData = { expenditures: essentialExpenses, displayType: 'Essential' }
     }
 
