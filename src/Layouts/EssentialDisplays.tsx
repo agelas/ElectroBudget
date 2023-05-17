@@ -11,8 +11,8 @@ import Inputter from '../Components/Inputter';
 
 export default function EssentialDisplays({appData, addExpenseItem}: DisplayData) {
 
-    let graphData: GraphProps = { payPeriods: [], paySpent: [] };
-    let ringData: RingProps = { total: 0, spent: 0 };
+    let graphData: GraphProps = { payPeriods: [], paySpent: [], payColor: "#50f15b", spentColor: "#b8f9bd" };
+    let ringData: RingProps = { total: 0, spent: 0, totalColor: "#50f15b", spentColor: "#b8f9bd" };
     let stackData: CostStackInterface = { expenditures: [], displayType: 'Essential' }
 
     if (appData) {
@@ -23,8 +23,8 @@ export default function EssentialDisplays({appData, addExpenseItem}: DisplayData
         const totalAllocation = getTotalAmount(graphArrayData);
         const essentialExpenses = getExpenseItems(graphArrayData);
 
-        graphData = { payPeriods: linePay, paySpent: lineSpent };
-        ringData = { total: totalAllocation, spent: currSpent };
+        graphData = { payPeriods: linePay, paySpent: lineSpent, payColor: "#50f15b", spentColor: "#b8f9bd" };
+        ringData = { total: totalAllocation, spent: currSpent, totalColor: "#b8f9bd", spentColor: "#50f15b" };
         stackData = { expenditures: essentialExpenses, displayType: 'Essential' }
     }
 
