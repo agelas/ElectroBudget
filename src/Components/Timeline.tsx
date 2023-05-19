@@ -3,7 +3,11 @@ import { Cash, FileDollar } from "tabler-icons-react";
 
 //TODO: Change bullet icon colors, should be responsive.
 
-export default function PayTimeline() {
+export interface PayTimelineInterface {
+    lineColor: string;
+  }
+
+export default function PayTimeline(props: PayTimelineInterface) {
     const d = new Date();
     const day = d.getDate();
     let daysNextPay: number, daysLastPay: number;
@@ -19,7 +23,7 @@ export default function PayTimeline() {
     }
 
     return (
-        <Timeline active={1}>
+        <Timeline active={1} color={props.lineColor} >
             <Timeline.Item bullet={<Cash size={24} />} bulletSize={36} title='Last Paycheck'>
                 <Text color='dimmed'>{daysLastPay} days ago</Text>
             </Timeline.Item>
