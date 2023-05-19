@@ -116,7 +116,7 @@ export default function NonessentialDisplays({
                 : theme.colors.gray[1],
           })}
         >
-          <PayTimeline />
+          <PayTimeline lineColor={dominantColor} />
         </Paper>
       </Grid.Col>
       <Grid.Col span={4}>

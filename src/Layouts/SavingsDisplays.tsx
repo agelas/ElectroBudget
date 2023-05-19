@@ -3,6 +3,7 @@ import PayTimeline from "../Components/Timeline";
 import SavingsAccounts from "../Components/SavingsAccounts";
 
 export default function SavingsDisplays() {
+    const dominantColor: string = '#9b6bf5';
 
     return (
         <Grid gutter="lg">
@@ -21,7 +22,7 @@ export default function SavingsDisplays() {
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    <PayTimeline />
+                    <PayTimeline lineColor={dominantColor} />
                 </Paper>
             </Grid.Col>
         </Grid>
