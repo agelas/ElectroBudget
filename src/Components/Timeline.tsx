@@ -3,7 +3,7 @@ import { Cash, FileDollar } from "tabler-icons-react";
 
 //TODO: Change bullet icon colors, should be responsive.
 
-export interface PayTimelineInterface {
+interface PayTimelineInterface {
     lineColor: string;
   }
 
