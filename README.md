@@ -7,9 +7,8 @@
 <img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/mantine-icon.svg"/>
 </div>
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Usage
+This project is intended to be used on a wide monitor and in dark mode. 
 
 ## Available Scripts
 
@@ -17,3 +16,4 @@ In the project directory, you can run:
 
 ### `yarn electron:start`
 Concurrently runs `yarn start` and `electron .`. 
+
