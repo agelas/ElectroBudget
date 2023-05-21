@@ -55,7 +55,7 @@ export default function EssentialDisplays({appData, addExpenseItem}: DisplayData
                     sx={(theme) => ({
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
-                    <PayTimeline lineColor={dominantColor}/>
+                    <PayTimeline lineColor={'essential-green'}/>
                 </Paper>
             </Grid.Col>
             <Grid.Col span={4}>

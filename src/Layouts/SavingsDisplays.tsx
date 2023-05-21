@@ -3,7 +3,7 @@ import PayTimeline from "../Components/Timeline";
 import SavingsAccounts from "../Components/SavingsAccounts";
 
 export default function SavingsDisplays() {
-    const dominantColor: string = '#9b6bf5';
+    const dominantColor: string = 'savings-purple';
 
     return (
         <Grid gutter="lg">
