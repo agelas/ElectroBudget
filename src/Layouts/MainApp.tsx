@@ -52,6 +52,18 @@ function MainApp() {
     setAppData(updatedData);
   };
 
+  const deleteExpenseItem = (itemName: string) => {
+    const updatedData = [...appData];
+    const lastIndex = updatedData.length - 1;
+    const targetPaycheck = updatedData[lastIndex];
+  
+    if (lastIndex !== -1) {
+      targetPaycheck.ExpenseItems = targetPaycheck.ExpenseItems.filter((item: { Name: string; }) => item.Name !== itemName);
+    }
+    console.log("Attempt at delete update");
+    setAppData(updatedData);
+  };
+
   return (
     <>
       {dataLoaded && (
