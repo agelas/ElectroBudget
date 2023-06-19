@@ -13,6 +13,7 @@ import {
   getExpenseItems,
   getTotalAmount,
 } from "../Utils/ParsingFunctions";
+import { ExpenseInputType } from "../Components/ExpenseInput";
 
 export interface DisplayData {
   appData: Array<any>;
@@ -116,7 +117,7 @@ export default function NonessentialDisplays({
                 : theme.colors.gray[1],
           })}
         >
-          <PayTimeline lineColor={'nonessential-teal'} />
+          <PayTimeline lineColor={"nonessential-teal"} />
         </Paper>
       </Grid.Col>
       <Grid.Col span={4}>
@@ -160,7 +161,10 @@ export default function NonessentialDisplays({
                 : theme.colors.gray[1],
           })}
         >
-          <Inputter InputFunction={addExpenseItem} />
+          <Inputter
+            ExpenseType={ExpenseInputType.NonEssential}
+            InputFunction={addExpenseItem}
+          />
         </Paper>
       </Grid.Col>
     </Grid>
