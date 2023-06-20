@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Group, ActionIcon, Text, Paper, Switch } from "@mantine/core";
-import { Coffee } from "tabler-icons-react";
+import { Coffee, Lifebuoy } from "tabler-icons-react";
 
 export interface ExpenseGroupProps {
   expenseType: string;
@@ -33,7 +33,8 @@ export default function ExpenseGroup(props: ExpenseGroupProps) {
       <Group position="apart">
         <Group>
           <ActionIcon color="cyan">
-            <Coffee />
+            {/* NonEssential is coffee, Essential is Lifebuoy because these expenses should be to keep your life afloat */}
+            {props.expenseType === "NonEssential" ? <Coffee /> : <Lifebuoy />}
           </ActionIcon>
           <Text>{props.name}</Text>
         </Group>
