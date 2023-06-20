@@ -83,13 +83,13 @@ function MainApp() {
           }
           footer={
             <Footer height={60} p="md">
-              Footer here
+              Stay un-broke, no promises though
             </Footer>
           }
           header={
             <Header height={70} p="md">
               <Group sx={{ height: "100%" }} px={20} position="apart">
-                <Title order={1}>Stay Un-Broke</Title>
+                <Title order={1}>ElectroBudget</Title>
                 <ActionIcon
                   variant="default"
                   onClick={() => toggleColorScheme()}
