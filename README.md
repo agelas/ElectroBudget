@@ -7,6 +7,9 @@
 <img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/mantine-icon.svg"/>
 </div>
 
+## ElectroBudget
+A budgetting app running on Electron. 
+
 ## Usage
 This project is intended to be used on a wide monitor and in dark mode. 
 
