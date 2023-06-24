@@ -46,16 +46,18 @@ export default function EssentialDisplays({
     const linePay = formGraphArray(
       graphArrayData,
       Categories.Essential,
-      "PaycheckAmount"
+      "PaycheckAmount",
+      0
     );
     const lineSpent = formGraphArray(
       graphArrayData,
       Categories.None,
-      "EssentialSpent"
+      "EssentialSpent",
+      0
     );
     const currSpent = getCurrentSpent(graphArrayData, "Essential");
     const totalAllocation = getTotalAmount(graphArrayData);
-    const essentialExpenses = getExpenseItems(graphArrayData);
+    const essentialExpenses = getExpenseItems(graphArrayData, 0);
 
     graphData = {
       payPeriods: linePay,

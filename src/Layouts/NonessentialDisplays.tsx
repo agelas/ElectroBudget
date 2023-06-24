@@ -49,14 +49,16 @@ export default function NonessentialDisplays({
     const linePay = formGraphArray(
       graphArrayData,
       Categories.NonEssential,
-      "PaycheckAmount"
+      "PaycheckAmount",
+      0
     );
     const lineSpent = formGraphArray(
       graphArrayData,
       Categories.None,
-      "NonEssentialSpent"
+      "NonEssentialSpent",
+      0
     );
-    const expenses = getExpenseItems(graphArrayData);
+    const expenses = getExpenseItems(graphArrayData, 0);
     const currSpent = getCurrentSpent(graphArrayData, "NonEssential");
     const totalAllocation = getTotalAmount(graphArrayData);
 
