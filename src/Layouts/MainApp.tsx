@@ -4,6 +4,7 @@ import NonEssentialBroker from "./NonessentialBroker";
 import { Sun, MoonStars } from "tabler-icons-react";
 import EssentialBroker from "./EssentialBroker";
 import SavingsBroker from "./SavingsBroker";
+import { PayContext } from "../Utils/PayContext";
 import { useEffect, useState } from "react";
 
 function MainApp() {
@@ -11,6 +12,7 @@ function MainApp() {
     const [currentPage, setCurrentPage] = useState<string>("Non-Essentials");
     const [appData, setAppData] = useState<any>([]);
     const [dataLoaded, setDataLoaded] = useState<boolean>(false);
+    const [payCheckOffset, setPayCheckOffset] = useState(0);
 
     useEffect(() => {
         async function fetchData() {
@@ -60,6 +62,7 @@ function MainApp() {
     return (
         <>
             {dataLoaded && (
+              <PayContext.Provider value={{ payCheckOffset, setPayCheckOffset}}>
                 <AppShell
                     navbarOffsetBreakpoint='sm'
                     asideOffsetBreakpoint='sm'
@@ -98,6 +101,7 @@ function MainApp() {
                     )}
                     {currentPage === "Savings" && <SavingsBroker />}
                 </AppShell>
+              </PayContext.Provider>
             )}
         </>
     );
