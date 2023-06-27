@@ -1,11 +1,6 @@
 import { SimpleGrid, Paper, useMantineColorScheme } from "@mantine/core";
 import PayPeriodToggle from "../Components/PayPeriodToggle";
-
-export interface InfoProps {
-    numPaychecks: number;
-    discretionaryToDate: number;
-    availableNow: number;
-}
+import { InfoProps } from "../Utils/Interfaces";
 
 export default function NonessentialInfo(props: InfoProps) {
     const { colorScheme } = useMantineColorScheme();
