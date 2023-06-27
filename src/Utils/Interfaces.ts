@@ -15,6 +15,15 @@ export interface DisplayData {
     addExpenseItem: (newItem: any) => void;
 }
 
+// The props that need to be passed for filling in the 4 horizontal bars
+// at the top of each page.
+// Used in EssentialInfo, EssentialBroker, NonessentialBroker, and NonessentialInfo.
+export interface InfoProps {
+    numPaychecks: number;
+    discretionaryToDate: number;
+    availableNow: number;
+}
+
 // An expense type plus the callback function that appends the expense
 // to app data.
 // Used in Inputter, ExpenseInput.
@@ -31,4 +40,43 @@ export interface ExpenseGroupProps {
     cost: number;
     active: boolean;
     key: number;
+}
+
+// Takes in an array of expenditures extracted from app data.
+// TODO: Use ExpenseType instead of a string for displayType.
+// Used in CostStack, EssentialDisplays, NonessentialDisplays.
+export interface CostStackInterface {
+    expenditures: Array<any>;
+    displayType: string;
+}
+
+// All the fields necessary for rendering the graphs used from react-vis.
+// The payPeriods field is an array of x (paycheck #) and y (the amount contributed)
+// to the expense type) values. The paySpent field is an array of x (paycheck #) and y
+// (the amount used in that expense type). 
+// Used in IncomeLineGraph, EssentialDisplays, NonEssentialDisplays,
+export interface GraphProps {
+    payPeriods: Array<{ x: number; y: number }>;
+    paySpent: Array<{ x: number; y: number }>;
+    payColor: string;
+    spentColor: string;
+}
+
+// Fields necessary for rendering a ring graph.
+// Used in RingGraph, EssentialDisplays, NonessentialDisplays.
+export interface RingProps {
+    total: number;
+    spent: number;
+    totalColor: string;
+    spentColor: string;
+}
+
+// Fields necessary for filling in a savings account panel.
+// Used in SavingsAccountPanel.
+export interface SavingsAccountProps {
+    accountHolder: string,
+    accountType: string,
+    goal: number,
+    currentPrincipal: number,
+    key: number
 }
