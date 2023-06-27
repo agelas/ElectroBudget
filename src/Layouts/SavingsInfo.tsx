@@ -1,5 +1,5 @@
 import { SimpleGrid, Paper, useMantineColorScheme } from "@mantine/core";
-import { InfoProps } from "./EssentialInfo";
+import { InfoProps } from "../Utils/Interfaces";
 
 export default function SavingsInfo(props: InfoProps) {
   const { colorScheme } = useMantineColorScheme();
