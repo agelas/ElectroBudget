@@ -1,6 +1,4 @@
 import { Grid, Paper, ScrollArea } from "@mantine/core";
-import { GraphProps } from "../Components/IncomeLineGraph";
-import { RingProps } from "../Components/RingGraph";
 import PayTimeline from "../Components/Timeline";
 import {
     turnIntoArray,
@@ -12,12 +10,12 @@ import {
 } from "../Utils/ParsingFunctions";
 import IncomeLineGraph from "../Components/IncomeLineGraph";
 import RingGraph from "../Components/RingGraph";
-import CostStack, { CostStackInterface } from "../Components/CostStack";
+import CostStack from "../Components/CostStack";
 import Inputter from "../Components/Inputter";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
 import { ExpenseInputType } from "../Utils/Enums";
-import { DisplayData } from "../Utils/Interfaces";
+import { CostStackInterface, DisplayData, GraphProps, RingProps } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: DisplayData) {
     const dominantColor: string = "#50f15b";
