@@ -2,7 +2,7 @@ import React from 'react';
 import { Coin, Coffee, SmartHome, Settings, BrandGithub } from 'tabler-icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
 
-export interface MainLinksProps {
+interface MainLinksProps {
     setterFunction: React.Dispatch<any>;
 }
 
