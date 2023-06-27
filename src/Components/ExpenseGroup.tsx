@@ -1,15 +1,8 @@
 import { useState } from "react";
 import { Group, ActionIcon, Text, Paper, Switch } from "@mantine/core";
 import { Coffee, Lifebuoy } from "tabler-icons-react";
-import { ExpenseInputType } from "./ExpenseInput";
-
-export interface ExpenseGroupProps {
-  expenseType: ExpenseInputType;
-  name: string;
-  cost: number;
-  active: boolean;
-  key: number;
-}
+import { ExpenseInputType } from "../Utils/Enums";
+import { ExpenseGroupProps } from "../Utils/Interfaces";
 
 function NonEssentialToggle(props: any) {
   const [checked, setChecked] = useState<boolean>(Boolean(props.active));

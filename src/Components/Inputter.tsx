@@ -1,7 +1,8 @@
 import React from "react";
 import { Divider, ActionIcon, Center } from "@mantine/core";
 import { CirclePlus, CircleMinus } from "tabler-icons-react";
-import ExpenseInput, { ExpenseInputInterface } from "./ExpenseInput";
+import ExpenseInput from "./ExpenseInput";
+import { ExpenseInputInterface } from "../Utils/Interfaces";
 
 export default function Inputter({
   ExpenseType,

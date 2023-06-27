@@ -1,11 +1,7 @@
 import { Stack } from "@mantine/core";
 import ExpenseGroup from "./ExpenseGroup";
 import { Text } from "@mantine/core";
-
-export interface CostStackInterface {
-  expenditures: Array<any>;
-  displayType: string;
-}
+import { CostStackInterface } from "../Utils/Interfaces";
 
 export default function CostStack(props: CostStackInterface) {
   console.log(props.expenditures);

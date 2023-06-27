@@ -1,16 +1,7 @@
 import { useState } from "react";
 import { TextInput, NumberInput, Group, ActionIcon } from "@mantine/core";
 import { SquarePlus } from "tabler-icons-react";
-
-export enum ExpenseInputType {
-  Essential = "Essential",
-  NonEssential = "NonEssential",
-}
-
-export interface ExpenseInputInterface {
-  ExpenseType: ExpenseInputType;
-  InputFunction: (newItem: any) => void;
-}
+import { ExpenseInputInterface } from "../Utils/Interfaces";
 
 export default function ExpenseInput({
   ExpenseType,

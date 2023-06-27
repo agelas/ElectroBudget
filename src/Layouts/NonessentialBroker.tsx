@@ -1,6 +1,7 @@
 import { Space } from "@mantine/core";
-import NonessentialDisplays, { DisplayData } from "./NonessentialDisplays";
+import NonessentialDisplays from "./NonessentialDisplays";
 import NonessentialInfo, { InfoProps } from "./NonessentialInfo";
+import { DisplayData } from "../Utils/Interfaces";
 
 export default function NonEssentialBroker({ appData, addExpenseItem }: DisplayData) {
     var graphData: DisplayData = { appData, addExpenseItem };

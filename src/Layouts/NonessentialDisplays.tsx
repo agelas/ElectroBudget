@@ -13,14 +13,10 @@ import {
     getExpenseItems,
     getTotalAmount,
 } from "../Utils/ParsingFunctions";
-import { ExpenseInputType } from "../Components/ExpenseInput";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
-
-export interface DisplayData {
-    appData: Array<any>;
-    addExpenseItem: (newItem: any) => void;
-}
+import { ExpenseInputType } from "../Utils/Enums";
+import { DisplayData } from "../Utils/Interfaces";
 
 export default function NonessentialDisplays({ appData, addExpenseItem }: DisplayData) {
     const dominantColor: string = "#5fb7bf";

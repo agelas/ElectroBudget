@@ -10,14 +10,14 @@ import {
     getTotalAmount,
     getExpenseItems,
 } from "../Utils/ParsingFunctions";
-import { DisplayData } from "./NonessentialDisplays";
 import IncomeLineGraph from "../Components/IncomeLineGraph";
 import RingGraph from "../Components/RingGraph";
 import CostStack, { CostStackInterface } from "../Components/CostStack";
 import Inputter from "../Components/Inputter";
-import { ExpenseInputType } from "../Components/ExpenseInput";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
+import { ExpenseInputType } from "../Utils/Enums";
+import { DisplayData } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: DisplayData) {
     const dominantColor: string = "#50f15b";
