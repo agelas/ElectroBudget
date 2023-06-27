@@ -17,7 +17,7 @@ export interface DisplayData {
 
 // The props that need to be passed for filling in the 4 horizontal bars
 // at the top of each page.
-// Used in EssentialInfo, EssentialBroker, NonessentialBroker, and NonessentialInfo.
+// Used in EssentialInfo, EssentialBroker, NonessentialBroker, NonessentialInfo, SavingsBroker.
 export interface InfoProps {
     numPaychecks: number;
     discretionaryToDate: number;
@@ -53,7 +53,7 @@ export interface CostStackInterface {
 // All the fields necessary for rendering the graphs used from react-vis.
 // The payPeriods field is an array of x (paycheck #) and y (the amount contributed)
 // to the expense type) values. The paySpent field is an array of x (paycheck #) and y
-// (the amount used in that expense type). 
+// (the amount used in that expense type).
 // Used in IncomeLineGraph, EssentialDisplays, NonEssentialDisplays,
 export interface GraphProps {
     payPeriods: Array<{ x: number; y: number }>;
@@ -74,9 +74,9 @@ export interface RingProps {
 // Fields necessary for filling in a savings account panel.
 // Used in SavingsAccountPanel.
 export interface SavingsAccountProps {
-    accountHolder: string,
-    accountType: string,
-    goal: number,
-    currentPrincipal: number,
-    key: number
+    accountHolder: string;
+    accountType: string;
+    goal: number;
+    currentPrincipal: number;
+    key: number;
 }
