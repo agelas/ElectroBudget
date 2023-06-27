@@ -54,7 +54,7 @@ export interface CostStackInterface {
 // The payPeriods field is an array of x (paycheck #) and y (the amount contributed)
 // to the expense type) values. The paySpent field is an array of x (paycheck #) and y
 // (the amount used in that expense type).
-// Used in IncomeLineGraph, EssentialDisplays, NonEssentialDisplays,
+// Used in IncomeLineGraph, IncomeStackBar, EssentialDisplays, NonEssentialDisplays.
 export interface GraphProps {
     payPeriods: Array<{ x: number; y: number }>;
     paySpent: Array<{ x: number; y: number }>;

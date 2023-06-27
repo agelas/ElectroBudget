@@ -7,7 +7,7 @@ import {
   VerticalBarSeries,
 } from "react-vis";
 import "../../node_modules/react-vis/dist/style.css";
-import { GraphProps } from "./IncomeLineGraph";
+import { GraphProps } from "../Utils/Interfaces";
 
 //At some point maybe add DiscreteColorLegend if it doesn't screw up the formatting too much
 
