@@ -1,3 +1,4 @@
+import { Categories } from "./Enums";
 import { getNestedObject } from "./NestedAccess";
 
 // Turns data object into an array that all the other functions expect
@@ -73,13 +74,6 @@ export function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
     return spentArray;
 }
 
-export enum Categories {
-    Essential,
-    NonEssential,
-    Savings,
-    None,
-}
-
 export function formGraphArray(dataArray: any[], category: Categories, value: string, offset: number): Array<any> {
     let graphArray = [];
     let startIndex = 0; // The index where we start slice from all the data
@@ -89,7 +83,7 @@ export function formGraphArray(dataArray: any[], category: Categories, value: st
     if (dataArray.length > 7 + offset) {
         // keep to last 7 data points
         startIndex = dataArray.length - 7 - offset;
-        endIndex = dataArray.length - offset
+        endIndex = dataArray.length - offset;
     }
 
     for (let i = startIndex; i < endIndex; i++) {

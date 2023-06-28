@@ -2,7 +2,6 @@ import { Grid, Paper, ScrollArea } from "@mantine/core";
 import PayTimeline from "../Components/Timeline";
 import {
     turnIntoArray,
-    Categories,
     formGraphArray,
     getCurrentSpent,
     getTotalAmount,
@@ -14,7 +13,7 @@ import CostStack from "../Components/CostStack";
 import Inputter from "../Components/Inputter";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
-import { ExpenseInputType } from "../Utils/Enums";
+import { Categories, ExpenseInputType } from "../Utils/Enums";
 import { CostStackInterface, DisplayData, GraphProps, RingProps } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: DisplayData) {

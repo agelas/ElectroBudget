@@ -7,7 +7,6 @@ import RingGraph from "../Components/RingGraph";
 import Inputter from "../Components/Inputter";
 import {
     turnIntoArray,
-    Categories,
     formGraphArray,
     getCurrentSpent,
     getExpenseItems,
@@ -15,7 +14,7 @@ import {
 } from "../Utils/ParsingFunctions";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
-import { ExpenseInputType } from "../Utils/Enums";
+import { Categories, ExpenseInputType } from "../Utils/Enums";
 import { CostStackInterface, DisplayData, GraphProps, RingProps } from "../Utils/Interfaces";
 
 export default function NonessentialDisplays({ appData, addExpenseItem }: DisplayData) {
