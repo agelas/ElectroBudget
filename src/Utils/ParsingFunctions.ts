@@ -76,21 +76,23 @@ export function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
 export enum Categories {
     Essential,
     NonEssential,
-    Saving,
+    Savings,
     None,
 }
 
 export function formGraphArray(dataArray: any[], category: Categories, value: string, offset: number): Array<any> {
     let graphArray = [];
-    let constraint = 0;
+    let startIndex = 0; // The index where we start slice from all the data
+    let endIndex = dataArray.length; // The index where we stop slicing
     let multiplier = 1;
 
     if (dataArray.length > 7 + offset) {
         // keep to last 7 data points
-        constraint = dataArray.length - 7 - offset;
+        startIndex = dataArray.length - 7 - offset;
+        endIndex = dataArray.length - offset
     }
 
-    for (let i = constraint; i < dataArray.length; i++) {
+    for (let i = startIndex; i < endIndex; i++) {
         let percentages = getNestedObject(dataArray[i], ["Breakdown"]);
         if (category !== 3) {
             multiplier = percentages[category];
