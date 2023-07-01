@@ -133,3 +133,15 @@ export function getTotalAmount(dataArray: any[]): number {
 
     return pay * multiplier;
 }
+
+export function getDate(dataArray: any[]): string {
+    let date = new Date("2000-01-01");
+
+    if (dataArray.length > 0) {
+        let lastDoc = dataArray[dataArray.length - 1];
+        date = new Date(getNestedObject(lastDoc, ["Date"]));
+    }
+
+    const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+}
