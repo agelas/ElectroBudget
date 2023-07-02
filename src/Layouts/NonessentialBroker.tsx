@@ -2,13 +2,13 @@ import { Space } from "@mantine/core";
 import NonessentialDisplays from "./NonessentialDisplays";
 import NonessentialInfo from "./NonessentialInfo";
 import { DisplayData, InfoProps } from "../Utils/Interfaces";
+import { getPaycheckNumber, getDate } from "../Utils/ParsingFunctions";
 
 export default function NonEssentialBroker({ appData, addExpenseItem }: DisplayData) {
     var graphData: DisplayData = { appData, addExpenseItem };
     let infoData: InfoProps = {
-        numPaychecks: 7,
-        discretionaryToDate: 200,
-        availableNow: 1000,
+        numPaychecks: getPaycheckNumber(appData),
+        date: getDate(appData),
     };
 
     return (

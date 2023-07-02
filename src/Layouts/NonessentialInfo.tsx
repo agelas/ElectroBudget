@@ -41,7 +41,7 @@ export default function NonessentialInfo(props: InfoProps) {
                 })}
             >
                 {" "}
-                Paycheck Date:{" "}
+                Paycheck Date: {props.date}
             </Paper>
             <Paper
                 radius='md'
