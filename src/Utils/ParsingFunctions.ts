@@ -1,4 +1,4 @@
-import { Categories } from "./Enums";
+import { Categories, ExpenseInputType } from "./Enums";
 import { getNestedObject } from "./NestedAccess";
 
 // Turns data object into an array that all the other functions expect
@@ -105,30 +105,42 @@ export function getExpenseItems(dataArray: any[], offset: number): Array<any> {
     return expenseArray;
 }
 
-export function getCurrentSpent(dataArray: any[], category: string): number {
+// Converts a Categories enum to ExpenseInputType enum
+function expenseEnumConverter(category: Categories): string {
+    if (category === Categories.Essential) {
+        return ExpenseInputType.Essential;
+    } else if (category === Categories.NonEssential) {
+        return ExpenseInputType.NonEssential;
+    }
+
+    return ""
+}
+
+// Used for ring graph
+export function getCurrentSpent(dataArray: any[], category: Categories, offset: number): number {
     let expenseArray = [];
     let spent = 0;
     if (dataArray.length > 0) {
-        let lastDoc = dataArray[dataArray.length - 1];
-        expenseArray = getNestedObject(lastDoc, ["ExpenseItems"]);
-        var filteredExpenseArray = expenseArray.filter((expense: { Type: string }) => expense.Type === category);
+        let doc = dataArray[dataArray.length - 1 - offset];
+        expenseArray = getNestedObject(doc, ["ExpenseItems"]);
+        var filteredExpenseArray = expenseArray.filter((expense: { Type: string }) => expense.Type === expenseEnumConverter(category));
         filteredExpenseArray.forEach((element: any) => {
             spent = spent + getNestedObject(element, ["Cost"]);
         });
     }
 
-    // console.log(spent);
     return spent;
 }
 
-export function getTotalAmount(dataArray: any[]): number {
+// Used for ring graph
+export function getTotalAmount(dataArray: any[], category: Categories, offset: number): number {
     let pay,
         multiplier = 1;
     if (dataArray.length > 0) {
-        let lastDoc = dataArray[dataArray.length - 1];
-        pay = getNestedObject(lastDoc, ["PaycheckAmount"]);
-        let percentages = getNestedObject(lastDoc, ["Breakdown"]);
-        multiplier = percentages[1]; // TODO: everything will be 30%
+        let doc = dataArray[dataArray.length - 1 - offset];
+        pay = getNestedObject(doc, ["PaycheckAmount"]);
+        let percentages = getNestedObject(doc, ["Breakdown"]);
+        multiplier = percentages[category];
     }
 
     return pay * multiplier;
