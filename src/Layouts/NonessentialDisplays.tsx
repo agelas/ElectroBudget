@@ -51,8 +51,8 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: Displa
         const linePay = formGraphArray(graphArrayData, Categories.NonEssential, "PaycheckAmount", payCheckOffset);
         const lineSpent = formGraphArray(graphArrayData, Categories.None, "NonEssentialSpent", payCheckOffset);
         const expenses = getExpenseItems(graphArrayData, payCheckOffset);
-        const currSpent = getCurrentSpent(graphArrayData, "NonEssential");
-        const totalAllocation = getTotalAmount(graphArrayData);
+        const currSpent = getCurrentSpent(graphArrayData, Categories.NonEssential, payCheckOffset);
+        const totalAllocation = getTotalAmount(graphArrayData, Categories.NonEssential, payCheckOffset);
 
         graphData = {
             payPeriods: linePay,
