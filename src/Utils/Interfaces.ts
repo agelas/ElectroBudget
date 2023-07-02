@@ -20,8 +20,7 @@ export interface DisplayData {
 // Used in EssentialInfo, EssentialBroker, NonessentialBroker, NonessentialInfo, SavingsBroker.
 export interface InfoProps {
     numPaychecks: number;
-    discretionaryToDate: number;
-    availableNow: number;
+    date: string;
 }
 
 // An expense type plus the callback function that appends the expense
