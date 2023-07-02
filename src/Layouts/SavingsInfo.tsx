@@ -44,7 +44,7 @@ export default function SavingsInfo(props: InfoProps) {
         })}
       >
         {" "}
-        Spent this Period:{" "}
+        Date: {props.date}
       </Paper>
       <Paper
         radius="md"
@@ -54,8 +54,7 @@ export default function SavingsInfo(props: InfoProps) {
             colorScheme === "dark" ? "#9b6bf5" : theme.colors.teal[4],
         })}
       >
-        {" "}
-        Available Now: {props.availableNow}
+        
       </Paper>
     </SimpleGrid>
   );

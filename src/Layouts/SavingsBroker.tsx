@@ -8,8 +8,7 @@ export default function SavingsBroker(props: any): ReactElement<any, any> {
 
     let infoData: InfoProps = {
         numPaychecks: 7,
-        discretionaryToDate: 200,
-        availableNow: 1000
+        date: "January 0, 2000"
     }
 
     return (
