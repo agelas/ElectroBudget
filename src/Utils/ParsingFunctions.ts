@@ -145,3 +145,14 @@ export function getDate(dataArray: any[]): string {
     const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options);
 }
+
+export function getPaycheckNumber(dataArray: any[]): number {
+    let num = 0;
+
+    if (dataArray.length > 0) {
+        let lastDoc = dataArray[dataArray.length - 1];
+        num = getNestedObject(lastDoc, ["PaycheckNum"])
+    }
+
+    return num;
+}
