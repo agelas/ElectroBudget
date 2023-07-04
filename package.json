@@ -5,6 +5,7 @@
   "main": "electron/main.ts",
   "dependencies": {
     "@mantine/core": "^4.2.7",
+    "@mantine/form": "4.2.7",
     "@mantine/hooks": "^4.2.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
