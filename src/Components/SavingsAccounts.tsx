@@ -25,7 +25,7 @@ const Accounts = [ // Dummy data
 export default function SavingsAccounts() {
     var MappedAccounts = Accounts.map( (item, i) => {
         return (
-            <SavingsAccountPanel key={i} accountHolder={item.Account} accountType={item.Type} goal={item.Goal} currentPrincipal={item.Current} />
+            <SavingsAccountPanel key={i} accountHolder={item.Account} accountType={item.Type} goal={item.Goal} currentValue={item.Current} />
         )
     })
 

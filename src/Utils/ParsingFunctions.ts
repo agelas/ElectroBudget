@@ -55,7 +55,7 @@ export function formPayArray(dataArray: any[]): Array<any> {
         let multiplier = percentages[0];
         payArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], ["PaycheckAmount"]) });
     }
-    // console.log(payArray);
+    
     return payArray;
 }
 
@@ -93,7 +93,7 @@ export function formGraphArray(dataArray: any[], category: Categories, value: st
         }
         graphArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], [value]) });
     }
-    // console.log(dataArray);
+   
     return graphArray;
 }
 
@@ -144,6 +144,16 @@ export function getTotalAmount(dataArray: any[], category: Categories, offset: n
     }
 
     return pay * multiplier;
+}
+
+export function getSavingsAccount(dataArray: any[]): Array<any> {
+    let accounts = [];
+    if (dataArray.length > 0) {
+        let doc = dataArray[dataArray.length - 1];
+        accounts = getNestedObject(doc, ["SavingsAccounts"]);
+    }
+
+    return accounts;
 }
 
 export function getDate(dataArray: any[]): string {

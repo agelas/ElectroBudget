@@ -76,6 +76,6 @@ export interface SavingsAccountProps {
     accountHolder: string;
     accountType: string;
     goal: number;
-    currentPrincipal: number;
+    currentValue: number;
     key: number;
 }
