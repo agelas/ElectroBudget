@@ -1,4 +1,5 @@
 import { Categories, ExpenseInputType } from "./Enums";
+import { SavingsAccountPanelProps } from "./Interfaces";
 import { getNestedObject } from "./NestedAccess";
 
 // Turns data object into an array that all the other functions expect
@@ -55,7 +56,7 @@ export function formPayArray(dataArray: any[]): Array<any> {
         let multiplier = percentages[0];
         payArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], ["PaycheckAmount"]) });
     }
-    
+
     return payArray;
 }
 
@@ -78,7 +79,7 @@ export function formGraphArray(dataArray: any[], category: Categories, value: st
         }
         graphArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], [value]) });
     }
-   
+
     return graphArray;
 }
 
@@ -98,7 +99,7 @@ function expenseEnumConverter(category: Categories): string {
         return ExpenseInputType.NonEssential;
     }
 
-    return ""
+    return "";
 }
 
 // Used for ring graph
@@ -108,7 +109,9 @@ export function getCurrentSpent(dataArray: any[], category: Categories, offset: 
     if (dataArray.length > 0) {
         let doc = dataArray[dataArray.length - 1 - offset];
         expenseArray = getNestedObject(doc, ["ExpenseItems"]);
-        var filteredExpenseArray = expenseArray.filter((expense: { Type: string }) => expense.Type === expenseEnumConverter(category));
+        var filteredExpenseArray = expenseArray.filter(
+            (expense: { Type: string }) => expense.Type === expenseEnumConverter(category),
+        );
         filteredExpenseArray.forEach((element: any) => {
             spent = spent + getNestedObject(element, ["Cost"]);
         });
@@ -131,11 +134,17 @@ export function getTotalAmount(dataArray: any[], category: Categories, offset: n
     return pay * multiplier;
 }
 
-export function getSavingsAccount(dataArray: any[]): Array<any> {
+export function getSavingsAccounts(dataArray: any[]): SavingsAccountPanelProps[] {
     let accounts = [];
     if (dataArray.length > 0) {
         let doc = dataArray[dataArray.length - 1];
-        accounts = getNestedObject(doc, ["SavingsAccounts"]);
+        let accounts_data = getNestedObject(doc, ["SavingsAccounts"]);
+        accounts = accounts_data.map((account: any) => ({
+            accountHolder: account.Account,
+            accountType: account.Type,
+            goal: account.Goal,
+            currentValue: account.CurrentValue,
+        }));
     }
 
     return accounts;
@@ -158,7 +167,7 @@ export function getPaycheckNumber(dataArray: any[]): number {
 
     if (dataArray.length > 0) {
         let lastDoc = dataArray[dataArray.length - 1];
-        num = getNestedObject(lastDoc, ["PaycheckNum"])
+        num = getNestedObject(lastDoc, ["PaycheckNum"]);
     }
 
     return num;
