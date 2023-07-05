@@ -2,20 +2,24 @@ import { Space } from "@mantine/core";
 import SavingsDisplays from "./SavingsDisplays";
 import SavingsInfo from "./SavingsInfo";
 import { ReactElement } from "react";
-import { InfoProps } from "../Utils/Interfaces";
+import { DisplayData, InfoProps, SavingsAccountsData } from "../Utils/Interfaces";
+import { getDate, getPaycheckNumber, getSavingsAccounts } from "../Utils/ParsingFunctions";
 
-export default function SavingsBroker(props: any): ReactElement<any, any> {
-
+export default function SavingsBroker({ appData, addExpenseItem }: DisplayData): ReactElement<any, any> {
     let infoData: InfoProps = {
-        numPaychecks: 7,
-        date: "January 0, 2000"
-    }
+        numPaychecks: getPaycheckNumber(appData),
+        date: getDate(appData),
+    };
+
+    let accountsData: SavingsAccountsData = {
+        AccountsData: getSavingsAccounts(appData),
+    };
 
     return (
-        <>  
+        <>
             <SavingsInfo {...infoData} />
-            <Space h="xl" />
-            <SavingsDisplays />
+            <Space h='xl' />
+            <SavingsDisplays AccountsData={accountsData.AccountsData} />
         </>
-    )
+    );
 }
