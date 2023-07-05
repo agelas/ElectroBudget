@@ -59,21 +59,6 @@ export function formPayArray(dataArray: any[]): Array<any> {
     return payArray;
 }
 
-// Retrieves and formats data on how much money was spent in the non-essential expenditure category.
-export function formNonEssentialSpentArray(dataArray: any[]): Array<any> {
-    let spentArray = [];
-    let paycheckConstraint = 0; // let's just show the last 7 for now
-    if (dataArray.length > 7) {
-        paycheckConstraint = dataArray.length - 7;
-    }
-
-    for (let i = paycheckConstraint; i < dataArray.length; i++) {
-        spentArray.push({ x: i + 1, y: getNestedObject(dataArray[i], ["NonEssentialSpent"]) });
-    }
-
-    return spentArray;
-}
-
 export function formGraphArray(dataArray: any[], category: Categories, value: string, offset: number): Array<any> {
     let graphArray = [];
     let startIndex = 0; // The index where we start slice from all the data
