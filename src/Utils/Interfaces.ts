@@ -72,10 +72,15 @@ export interface RingProps {
 
 // Fields necessary for filling in a savings account panel.
 // Used in SavingsAccountPanel.
-export interface SavingsAccountProps {
+export interface SavingsAccountPanelProps {
     accountHolder: string;
     accountType: string;
     goal: number;
     currentValue: number;
-    key: number;
+    key?: number;
+}
+
+// Used to drill props from SavingsBroker down to SavingsAccounts.
+export interface SavingsAccountsData {
+    AccountsData: Array<SavingsAccountPanelProps>;
 }
