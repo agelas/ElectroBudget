@@ -67,7 +67,6 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: Displa
             totalColor: dominantColor,
             spentColor: accentColor,
         };
-        console.log(totalAllocation, currSpent);
     }
 
     return (
