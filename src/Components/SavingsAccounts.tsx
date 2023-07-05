@@ -1,37 +1,19 @@
 import { Group } from "@mantine/core";
 import SavingsAccountPanel from "./SavingsAccountPanel";
+import { SavingsAccountsData } from "../Utils/Interfaces";
 
-const Accounts = [ // Dummy data
-    {
-        Account: 'Wells Fargo',
-        Type: 'Savings',
-        Goal: 50000,
-        Current: 22000
-    },
-    {
-        Account: 'TD Ameritrade',
-        Type: 'Brokerage',
-        Goal: 60000,
-        Current: 3000,
-    },
-    {
-        Account: 'TD Ameritrade',
-        Type: 'Roth IRA',
-        Goal: 60000,
-        Current: 4000,
-    }
-]
-
-export default function SavingsAccounts() {
-    var MappedAccounts = Accounts.map( (item, i) => {
+export default function SavingsAccounts({ AccountsData }: SavingsAccountsData) {
+    var MappedAccounts = AccountsData.map((item, i) => {
         return (
-            <SavingsAccountPanel key={i} accountHolder={item.Account} accountType={item.Type} goal={item.Goal} currentValue={item.Current} />
-        )
-    })
+            <SavingsAccountPanel
+                key={i}
+                accountHolder={item.accountHolder}
+                accountType={item.accountType}
+                goal={item.goal}
+                currentValue={item.currentValue}
+            />
+        );
+    });
 
-    return (  
-        <Group spacing="lg" >
-            {MappedAccounts}
-        </Group>    
-    )
+    return <Group spacing='lg'>{MappedAccounts}</Group>;
 }
