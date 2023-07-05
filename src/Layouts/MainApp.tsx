@@ -99,7 +99,7 @@ function MainApp() {
                     {currentPage === "Essentials" && (
                         <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
                     )}
-                    {currentPage === "Savings" && <SavingsBroker />}
+                    {currentPage === "Savings" && <SavingsBroker appData={appData} addExpenseItem={addExpenseItem} />}
                 </AppShell>
               </PayContext.Provider>
             )}

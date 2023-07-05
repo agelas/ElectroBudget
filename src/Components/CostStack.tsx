@@ -4,7 +4,7 @@ import { Text } from "@mantine/core";
 import { CostStackInterface } from "../Utils/Interfaces";
 
 export default function CostStack(props: CostStackInterface) {
-  console.log(props.expenditures);
+  // console.log(props.expenditures);
   var AllExpenses;
 
   if (props.expenditures) {
