@@ -25,7 +25,7 @@ const createMainWindow = () => {
   });
 
   ipcMain.on("request-Data", (event, args) => {
-    console.log(args);
+    // console.log(args);
     const filepath = path.join(__dirname, '../src/SampleData/data.json')
     if (fs.existsSync(filepath)) {
         console.log('Yes exists?')
@@ -33,7 +33,7 @@ const createMainWindow = () => {
             if(error) {
                 console.log(error);
             } else {
-                console.log(JSON.parse(data));
+                // console.log(JSON.parse(data));
                 mainWindow.webContents.send("local-Data", JSON.parse(data));
             }
         });
