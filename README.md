@@ -8,7 +8,7 @@
 </div>
 
 ## ElectroBudget
-A budgetting app running on Electron. 
+A budgetting app running on Electron. Sections are split into Essentials, Non-Essentials, and Savings. 
 
 ## Usage
 This project is intended to be used on a wide monitor and in dark mode. 
