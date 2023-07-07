@@ -14,9 +14,9 @@ import Inputter from "../Components/Inputter";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
 import { Categories, ExpenseInputType } from "../Utils/Enums";
-import { CostStackInterface, DisplayData, GraphProps, RingProps } from "../Utils/Interfaces";
+import { CostStackInterface, IAppData, GraphProps, RingProps } from "../Utils/Interfaces";
 
-export default function EssentialDisplays({ appData, addExpenseItem }: DisplayData) {
+export default function EssentialDisplays({ appData, addExpenseItem }: IAppData) {
     const dominantColor: string = "#50f15b";
     const accentColor: string = "#b8f9bd";
 

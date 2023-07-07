@@ -10,7 +10,7 @@ export interface PayCheckContextType {
 // an expense to app data. addExpenseItem field gets used an InputFunction
 // down the component tree.
 // Used in EssentialBroker, EssentialDisplays, NonEssentialBroker, NonEssentialDisplays.
-export interface DisplayData {
+export interface IAppData {
     appData: Array<any>;
     addExpenseItem: (newItem: any) => void;
 }
@@ -18,7 +18,7 @@ export interface DisplayData {
 // The props that need to be passed for filling in the 4 horizontal bars
 // at the top of each page.
 // Used in EssentialInfo, EssentialBroker, NonessentialBroker, NonessentialInfo, SavingsBroker.
-export interface InfoProps {
+export interface IHeaderProps {
     numPaychecks: number;
     date: string;
 }

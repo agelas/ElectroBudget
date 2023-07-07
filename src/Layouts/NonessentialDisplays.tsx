@@ -15,9 +15,9 @@ import {
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
 import { Categories, ExpenseInputType } from "../Utils/Enums";
-import { CostStackInterface, DisplayData, GraphProps, RingProps } from "../Utils/Interfaces";
+import { CostStackInterface, IAppData, GraphProps, RingProps } from "../Utils/Interfaces";
 
-export default function NonessentialDisplays({ appData, addExpenseItem }: DisplayData) {
+export default function NonessentialDisplays({ appData, addExpenseItem }: IAppData) {
     const dominantColor: string = "#5fb7bf";
     const accentColor: string = "white";
 

@@ -1,8 +1,8 @@
 import { SimpleGrid, Paper, useMantineColorScheme } from "@mantine/core";
 import PayPeriodToggle from "../Components/PayPeriodToggle";
-import { InfoProps } from "../Utils/Interfaces";
+import { IHeaderProps } from "../Utils/Interfaces";
 
-export default function EssentialInfo(props: InfoProps) {
+export default function EssentialInfo(props: IHeaderProps) {
     const { colorScheme } = useMantineColorScheme();
     return (
         <SimpleGrid
