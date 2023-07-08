@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { TextInput, NumberInput, Group, ActionIcon } from "@mantine/core";
 import { SquarePlus } from "tabler-icons-react";
-import { ExpenseInputInterface } from "../Utils/Interfaces";
+import { IExpenseInput } from "../Utils/Interfaces";
 
-export default function ExpenseInput({ ExpenseType, InputFunction }: ExpenseInputInterface) {
+export default function ExpenseInput({ ExpenseType, InputFunction }: IExpenseInput) {
     const [name, setName] = useState("");
     const [cost, setCost] = useState(0);
 

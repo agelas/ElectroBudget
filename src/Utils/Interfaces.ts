@@ -26,7 +26,7 @@ export interface IHeaderProps {
 // An expense type plus the callback function that appends the expense
 // to app data.
 // Used in Inputter, ExpenseInput.
-export interface ExpenseInputInterface {
+export interface IExpenseInput {
     ExpenseType: ExpenseInputType;
     InputFunction: (newItem: any) => void;
 }
