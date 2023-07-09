@@ -47,8 +47,8 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
 
     if (appData) {
         const graphArrayData = turnIntoArray(appData);
-        const linePay = formGraphArray(graphArrayData, Categories.Essential, "PaycheckAmount", payCheckOffset);
-        const lineSpent = formGraphArray(graphArrayData, Categories.None, "EssentialSpent", payCheckOffset);
+        const linePay = formGraphArray(graphArrayData, Categories.Essential, payCheckOffset);
+        const lineSpent = formGraphArray(graphArrayData, Categories.None, payCheckOffset);
         const currSpent = getCurrentSpent(graphArrayData, Categories.Essential, payCheckOffset);
         const totalAllocation = getTotalAmount(graphArrayData, Categories.Essential, payCheckOffset);
         const essentialExpenses = getExpenseItems(graphArrayData, payCheckOffset);
