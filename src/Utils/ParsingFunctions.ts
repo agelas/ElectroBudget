@@ -74,10 +74,14 @@ export function formGraphArray(dataArray: any[], category: Categories, value: st
 
     for (let i = startIndex; i < endIndex; i++) {
         let percentages = getNestedObject(dataArray[i], ["Breakdown"]);
-        if (category !== 3) {
+        let value = 0;
+        if (category !== Categories.None) { // If None, then multiplier = 1 and value should = PaycheckAmount
             multiplier = percentages[category];
+            value = multiplier * getCurrentSpent(dataArray[i], category, 0); 
+        } else {
+            value = getNestedObject(dataArray[i], ["PaycheckAmount"]);
         }
-        graphArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], [value]) });
+        graphArray.push({ x: i + 1, y: value });
     }
 
     return graphArray;
