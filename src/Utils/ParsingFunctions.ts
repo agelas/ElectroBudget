@@ -60,11 +60,17 @@ export function formPayArray(dataArray: any[]): Array<any> {
     return payArray;
 }
 
-export function formGraphArray(dataArray: any[], category: Categories, value: string, offset: number): Array<any> {
+// Returns an array of {x, y} coordinates where x is the paycheck number, and y is the amount of funds
+// spent on that category. If retrieveAllocation is true, then y is the amount of paycheck set aside for the expenseCategory
+export function formGraphArray(
+    dataArray: any[],
+    expenseCategory: Categories,
+    retrieveAllocation: boolean,
+    offset: number,
+): Array<any> {
     let graphArray = [];
     let startIndex = 0; // The index where we start slice from all the data
     let endIndex = dataArray.length; // The index where we stop slicing
-    let multiplier = 1;
 
     if (dataArray.length > 7 + offset) {
         // keep to last 7 data points
@@ -73,13 +79,13 @@ export function formGraphArray(dataArray: any[], category: Categories, value: st
     }
 
     for (let i = startIndex; i < endIndex; i++) {
-        let percentages = getNestedObject(dataArray[i], ["Breakdown"]);
         let value = 0;
-        if (category !== Categories.None) { // If None, then multiplier = 1 and value should = PaycheckAmount
-            multiplier = percentages[category];
-            value = multiplier * getCurrentSpent(dataArray[i], category, 0); 
+        if (expenseCategory !== Categories.None && !retrieveAllocation) {
+            value = getCurrentSpent(dataArray[i], expenseCategory, 0);
         } else {
-            value = getNestedObject(dataArray[i], ["PaycheckAmount"]);
+            const percentages = getNestedObject(dataArray[i], ["Breakdown"]);
+            const multiplier = percentages[expenseCategory];
+            value = multiplier * getNestedObject(dataArray[i], ["PaycheckAmount"]);
         }
         graphArray.push({ x: i + 1, y: value });
     }
