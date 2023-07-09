@@ -15,7 +15,7 @@ import {
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
 import { Categories, ExpenseInputType } from "../Utils/Enums";
-import { CostStackInterface, IAppData, GraphProps, RingProps } from "../Utils/Interfaces";
+import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function NonessentialDisplays({ appData, addExpenseItem }: IAppData) {
     const dominantColor: string = "#5fb7bf";
@@ -29,17 +29,17 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
 
     const { payCheckOffset } = context;
 
-    let graphData: GraphProps = {
+    let graphData: IGraphProps = {
         payPeriods: [],
         paySpent: [],
         payColor: "#5fb7bf",
         spentColor: accentColor,
     };
-    let stackData: CostStackInterface = {
+    let stackData: ICostStack = {
         expenditures: [],
         displayType: "NonEssential",
     };
-    let ringData: RingProps = {
+    let ringData: IRingProps = {
         total: 0,
         spent: 0,
         totalColor: dominantColor,

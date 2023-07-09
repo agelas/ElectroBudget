@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Group, ActionIcon, Text, Paper, Switch } from "@mantine/core";
 import { Coffee, Lifebuoy } from "tabler-icons-react";
 import { ExpenseInputType } from "../Utils/Enums";
-import { ExpenseGroupProps } from "../Utils/Interfaces";
+import { IExpenseGroupProps } from "../Utils/Interfaces";
 
 function NonEssentialToggle(props: any) {
     const [checked, setChecked] = useState<boolean>(Boolean(props.active));
@@ -21,7 +21,7 @@ function EssentialRecurringToggle() {
     return <Switch color='cyan' label='Active' />;
 }
 
-export default function ExpenseGroup(props: ExpenseGroupProps) {
+export default function ExpenseGroup(props: IExpenseGroupProps) {
     return (
         <Paper radius='md' p='xs'>
             <Group position='apart'>

@@ -33,7 +33,7 @@ export interface IExpenseInput {
 
 // All the fields needed to render an expense group in the cost stack.
 // Used in ExpenseGroup.
-export interface ExpenseGroupProps {
+export interface IExpenseGroupProps {
     expenseType: ExpenseInputType;
     name: string;
     cost: number;
@@ -44,7 +44,7 @@ export interface ExpenseGroupProps {
 // Takes in an array of expenditures extracted from app data.
 // TODO: Use ExpenseType instead of a string for displayType.
 // Used in CostStack, EssentialDisplays, NonessentialDisplays.
-export interface CostStackInterface {
+export interface ICostStack {
     expenditures: Array<any>;
     displayType: string;
 }
@@ -54,7 +54,7 @@ export interface CostStackInterface {
 // to the expense type) values. The paySpent field is an array of x (paycheck #) and y
 // (the amount used in that expense type).
 // Used in IncomeLineGraph, IncomeStackBar, EssentialDisplays, NonEssentialDisplays.
-export interface GraphProps {
+export interface IGraphProps {
     payPeriods: Array<{ x: number; y: number }>;
     paySpent: Array<{ x: number; y: number }>;
     payColor: string;
@@ -63,7 +63,7 @@ export interface GraphProps {
 
 // Fields necessary for rendering a ring graph.
 // Used in RingGraph, EssentialDisplays, NonessentialDisplays.
-export interface RingProps {
+export interface IRingProps {
     total: number;
     spent: number;
     totalColor: string;
@@ -72,7 +72,7 @@ export interface RingProps {
 
 // Fields necessary for filling in a savings account panel.
 // Used in SavingsAccountPanel.
-export interface SavingsAccountPanelProps {
+export interface ISavingsPanelProps {
     accountHolder: string;
     accountType: string;
     goal: number;
@@ -81,6 +81,6 @@ export interface SavingsAccountPanelProps {
 }
 
 // Used to drill props from SavingsBroker down to SavingsAccounts.
-export interface SavingsAccountsData {
-    AccountsData: Array<SavingsAccountPanelProps>;
+export interface ISavingsData {
+    accountsData: Array<ISavingsPanelProps>;
 }

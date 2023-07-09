@@ -1,5 +1,5 @@
 import { Categories, ExpenseInputType } from "./Enums";
-import { SavingsAccountPanelProps } from "./Interfaces";
+import { ISavingsPanelProps } from "./Interfaces";
 import { getNestedObject } from "./NestedAccess";
 
 // Turns data object into an array that all the other functions expect
@@ -134,7 +134,7 @@ export function getTotalAmount(dataArray: any[], category: Categories, offset: n
     return pay * multiplier;
 }
 
-export function getSavingsAccounts(dataArray: any[]): SavingsAccountPanelProps[] {
+export function getSavingsAccounts(dataArray: any[]): ISavingsPanelProps[] {
     let accounts = [];
     if (dataArray.length > 0) {
         let doc = dataArray[dataArray.length - 1];

@@ -1,7 +1,7 @@
 import { RingProgress, Text, Group } from "@mantine/core";
-import { RingProps } from "../Utils/Interfaces";
+import { IRingProps } from "../Utils/Interfaces";
 
-export default function RingGraph(props: RingProps) {
+export default function RingGraph(props: IRingProps) {
     return (
         <Group>
             <RingProgress

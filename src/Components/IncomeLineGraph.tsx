@@ -1,7 +1,7 @@
 import { FlexibleWidthXYPlot, LineMarkSeries, XAxis, YAxis } from "react-vis";
-import { GraphProps } from "../Utils/Interfaces";
+import { IGraphProps } from "../Utils/Interfaces";
 
-export default function IncomeLineGraph(props: GraphProps) {
+export default function IncomeLineGraph(props: IGraphProps) {
     var ticks = props.payPeriods.map((t) => t.x);
 
     return (

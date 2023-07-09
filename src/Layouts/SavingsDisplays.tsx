@@ -1,9 +1,9 @@
 import { Grid, Paper, Center } from "@mantine/core";
 import PayTimeline from "../Components/Timeline";
 import SavingsAccounts from "../Components/SavingsAccounts";
-import { SavingsAccountsData } from "../Utils/Interfaces";
+import { ISavingsData } from "../Utils/Interfaces";
 
-export default function SavingsDisplays({ AccountsData }: SavingsAccountsData) {
+export default function SavingsDisplays({ accountsData }: ISavingsData) {
     const dominantColor: string = 'savings-purple';
 
     return (
@@ -14,7 +14,7 @@ export default function SavingsDisplays({ AccountsData }: SavingsAccountsData) {
                         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[1]
                     })}>
                     <Center>
-                        <SavingsAccounts AccountsData={AccountsData}/>
+                        <SavingsAccounts accountsData={accountsData}/>
                     </Center>
                 </Paper>
             </Grid.Col>

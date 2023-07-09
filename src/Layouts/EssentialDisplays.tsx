@@ -14,7 +14,7 @@ import Inputter from "../Components/Inputter";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
 import { Categories, ExpenseInputType } from "../Utils/Enums";
-import { CostStackInterface, IAppData, GraphProps, RingProps } from "../Utils/Interfaces";
+import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: IAppData) {
     const dominantColor: string = "#50f15b";
@@ -28,19 +28,19 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
 
     const { payCheckOffset } = context;
 
-    let graphData: GraphProps = {
+    let graphData: IGraphProps = {
         payPeriods: [],
         paySpent: [],
         payColor: dominantColor,
         spentColor: accentColor,
     };
-    let ringData: RingProps = {
+    let ringData: IRingProps = {
         total: 0,
         spent: 0,
         totalColor: dominantColor,
         spentColor: accentColor,
     };
-    let stackData: CostStackInterface = {
+    let stackData: ICostStack = {
         expenditures: [],
         displayType: "Essential",
     };

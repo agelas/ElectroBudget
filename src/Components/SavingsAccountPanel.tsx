@@ -1,8 +1,8 @@
 import { Paper, Text, Title, ActionIcon, Progress, Group, Space } from "@mantine/core";
 import { BuildingBank } from "tabler-icons-react";
-import { SavingsAccountPanelProps } from "../Utils/Interfaces";
+import { ISavingsPanelProps } from "../Utils/Interfaces";
 
-export default function SavingsAccountPanel(props: SavingsAccountPanelProps) {
+export default function SavingsAccountPanel(props: ISavingsPanelProps) {
     return (
         <Paper radius='md' p='xs' style={{ width: 280 }}>
             <Group>
