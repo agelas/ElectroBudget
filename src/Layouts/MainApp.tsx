@@ -41,7 +41,7 @@ function MainApp() {
         if (lastIndex !== -1) {
             targetPaycheck.ExpenseItems.push(newItem);
         }
-        console.log("Attempt at updating");
+        
         setAppData(updatedData);
     };
 
