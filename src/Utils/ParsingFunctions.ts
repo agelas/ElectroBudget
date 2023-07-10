@@ -81,7 +81,7 @@ export function formGraphArray(
     for (let i = startIndex; i < endIndex; i++) {
         let value = 0;
         if (expenseCategory !== Categories.None && !retrieveAllocation) {
-            value = getCurrentSpent(dataArray[i], expenseCategory, 0);
+            value = getCurrentSpentFromObject(dataArray[i], expenseCategory);
         } else {
             const percentages = getNestedObject(dataArray[i], ["Breakdown"]);
             const multiplier = percentages[expenseCategory];
@@ -116,7 +116,9 @@ function expenseEnumConverter(category: Categories): string {
 export function getCurrentSpent(dataArray: any[], category: Categories, offset: number): number {
     let expenseArray = [];
     let spent = 0;
+    console.log(dataArray.length);
     if (dataArray.length > 0) {
+        console.log('here')
         let doc = dataArray[dataArray.length - 1 - offset];
         expenseArray = getNestedObject(doc, ["ExpenseItems"]);
         var filteredExpenseArray = expenseArray.filter(
@@ -126,6 +128,20 @@ export function getCurrentSpent(dataArray: any[], category: Categories, offset: 
             spent = spent + getNestedObject(element, ["Cost"]);
         });
     }
+
+    return spent;
+}
+
+function getCurrentSpentFromObject(data: any, category: Categories) {
+    let spent = 0;
+
+    const expenseArray = getNestedObject(data, ["ExpenseItems"]);
+    const filteredExpenseArray = expenseArray.filter(
+        (expense: { Type: string }) => expense.Type === expenseEnumConverter(category),
+    );
+    filteredExpenseArray.forEach((element: any) => {
+        spent = spent + getNestedObject(element, ["Cost"]);
+    });
 
     return spent;
 }
