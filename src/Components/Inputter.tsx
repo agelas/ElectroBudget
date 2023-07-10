@@ -1,4 +1,3 @@
-import React from "react";
 import { Divider, ActionIcon, Center } from "@mantine/core";
 import { CirclePlus, CircleMinus } from "tabler-icons-react";
 import ExpenseInput from "./ExpenseInput";
