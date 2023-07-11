@@ -1,7 +1,7 @@
 import { TextInput, NumberInput, Group, Button, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
-export function SavingsAccountInput() {
+export function SavingsAccountForm() {
     const form = useForm({
         initialValues: {
             accountName: "",
@@ -12,7 +12,7 @@ export function SavingsAccountInput() {
     });
 
     return (
-        <Box>
+        <Box mx='auto'>
             <form>
                 <TextInput
                     required
