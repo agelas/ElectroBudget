@@ -1,6 +1,7 @@
 import { Grid, Paper, Center } from "@mantine/core";
 import PayTimeline from "../Components/Timeline";
 import SavingsAccounts from "../Components/SavingsAccounts";
+import { SavingsAccountForm } from "../Components/SavingsAccountInput";
 import { ISavingsData } from "../Utils/Interfaces";
 
 export default function SavingsDisplays({ accountsData }: ISavingsData) {
@@ -40,7 +41,7 @@ export default function SavingsDisplays({ accountsData }: ISavingsData) {
                         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[1],
                     })}
                 >
-                    
+                    <SavingsAccountForm />
                 </Paper>
             </Grid.Col>
         </Grid>

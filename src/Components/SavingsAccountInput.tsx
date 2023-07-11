@@ -1,4 +1,4 @@
-import { TextInput, Group, Button } from "@mantine/core";
+import { TextInput, NumberInput, Group, Button, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 export function SavingsAccountInput() {
@@ -12,7 +12,7 @@ export function SavingsAccountInput() {
     });
 
     return (
-        <>
+        <Box>
             <form>
                 <TextInput
                     required
@@ -20,13 +20,23 @@ export function SavingsAccountInput() {
                     placeholder='Wells Fargo/Chase/etc.'
                     {...form.getInputProps("accountName")}
                 />
-                <TextInput 
+                <TextInput
                     required
                     label='Account Type'
                     placeholder='Checking/Roth IRA/etc.'
                     {...form.getInputProps("accountType")}
                 />
+                <NumberInput mt='sm' label='Goal' placeholder='Goal' {...form.getInputProps("goal")} />
+                <NumberInput
+                    mt='sm'
+                    label='Current Value'
+                    placeholder='Current Value'
+                    {...form.getInputProps("currentValue")}
+                />
+                <Group position='center' mt='md'>
+                    <Button type='submit'>Submit</Button>
+                </Group>
             </form>
-        </>
+        </Box>
     );
 }
