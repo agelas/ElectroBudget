@@ -6,6 +6,7 @@ import EssentialBroker from "./EssentialBroker";
 import SavingsBroker from "./SavingsBroker";
 import { PayContext } from "../Utils/PayContext";
 import { useEffect, useState } from "react";
+import { ISavingsPanelProps } from "../Utils/Interfaces";
 
 function MainApp() {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -41,7 +42,19 @@ function MainApp() {
         if (lastIndex !== -1) {
             targetPaycheck.ExpenseItems.push(newItem);
         }
-        
+
+        setAppData(updatedData);
+    };
+
+    const addSavingsAccount = (newAccount: ISavingsPanelProps) => {
+        const updatedData = [...appData];
+        const lastIndex = updatedData.length - 1;
+        const targetPayObject = updatedData[lastIndex];
+
+        if (lastIndex !== -1) {
+            targetPayObject.SavingsAccounts.push(newAccount);
+        }
+
         setAppData(updatedData);
     };
 
@@ -62,46 +75,48 @@ function MainApp() {
     return (
         <>
             {dataLoaded && (
-              <PayContext.Provider value={{ payCheckOffset, setPayCheckOffset}}>
-                <AppShell
-                    navbarOffsetBreakpoint='sm'
-                    asideOffsetBreakpoint='sm'
-                    fixed
-                    navbar={
-                        <Navbar p='md' hiddenBreakpoint='sm' width={{ sm: 200, lg: 300 }}>
-                            <Navbar.Section grow mt='xs'>
-                                <MainLinks setterFunction={setCurrentPage} />
-                            </Navbar.Section>
-                            <Navbar.Section>
-                                <OtherLinks />
-                            </Navbar.Section>
-                        </Navbar>
-                    }
-                    footer={
-                        <Footer height={60} p='md'>
-                            Stay un-broke, no promises though
-                        </Footer>
-                    }
-                    header={
-                        <Header height={70} p='md'>
-                            <Group sx={{ height: "100%" }} px={20} position='apart'>
-                                <Title order={1}>ElectroBudget</Title>
-                                <ActionIcon variant='default' onClick={() => toggleColorScheme()} size={30}>
-                                    {colorScheme === "dark" ? <Sun size={16} /> : <MoonStars size={16} />}
-                                </ActionIcon>
-                            </Group>
-                        </Header>
-                    }
-                >
-                    {currentPage === "Non-Essentials" && (
-                        <NonEssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
-                    )}
-                    {currentPage === "Essentials" && (
-                        <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
-                    )}
-                    {currentPage === "Savings" && <SavingsBroker appData={appData} addExpenseItem={addExpenseItem} />}
-                </AppShell>
-              </PayContext.Provider>
+                <PayContext.Provider value={{ payCheckOffset, setPayCheckOffset }}>
+                    <AppShell
+                        navbarOffsetBreakpoint='sm'
+                        asideOffsetBreakpoint='sm'
+                        fixed
+                        navbar={
+                            <Navbar p='md' hiddenBreakpoint='sm' width={{ sm: 200, lg: 300 }}>
+                                <Navbar.Section grow mt='xs'>
+                                    <MainLinks setterFunction={setCurrentPage} />
+                                </Navbar.Section>
+                                <Navbar.Section>
+                                    <OtherLinks />
+                                </Navbar.Section>
+                            </Navbar>
+                        }
+                        footer={
+                            <Footer height={60} p='md'>
+                                Stay un-broke, no promises though
+                            </Footer>
+                        }
+                        header={
+                            <Header height={70} p='md'>
+                                <Group sx={{ height: "100%" }} px={20} position='apart'>
+                                    <Title order={1}>ElectroBudget</Title>
+                                    <ActionIcon variant='default' onClick={() => toggleColorScheme()} size={30}>
+                                        {colorScheme === "dark" ? <Sun size={16} /> : <MoonStars size={16} />}
+                                    </ActionIcon>
+                                </Group>
+                            </Header>
+                        }
+                    >
+                        {currentPage === "Non-Essentials" && (
+                            <NonEssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
+                        )}
+                        {currentPage === "Essentials" && (
+                            <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
+                        )}
+                        {currentPage === "Savings" && (
+                            <SavingsBroker appData={appData} addExpenseItem={addExpenseItem} />
+                        )}
+                    </AppShell>
+                </PayContext.Provider>
             )}
         </>
     );
