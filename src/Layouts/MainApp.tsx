@@ -113,7 +113,7 @@ function MainApp() {
                             <EssentialBroker appData={appData} addExpenseItem={addExpenseItem} />
                         )}
                         {currentPage === "Savings" && (
-                            <SavingsBroker appData={appData} addExpenseItem={addExpenseItem} />
+                            <SavingsBroker appData={appData} addExpenseItem={addSavingsAccount} />
                         )}
                     </AppShell>
                 </PayContext.Provider>

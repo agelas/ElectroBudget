@@ -1,8 +1,8 @@
 import { Group } from "@mantine/core";
 import SavingsAccountPanel from "./SavingsAccountPanel";
-import { ISavingsData } from "../Utils/Interfaces";
+import { IAccountsData } from "../Utils/Interfaces";
 
-export default function SavingsAccounts({ accountsData }: ISavingsData) {
+export default function SavingsAccounts({ accountsData }: IAccountsData) {
     var MappedAccounts = accountsData.map((item, i) => {
         return (
             <SavingsAccountPanel
