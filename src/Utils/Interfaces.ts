@@ -80,7 +80,13 @@ export interface ISavingsPanelProps {
     key?: number;
 }
 
-// Used to drill props from SavingsBroker down to SavingsAccounts.
+// Used to drill props from SavingsBroker down to SavingsDisplays.
 export interface ISavingsData {
+    accountsData: Array<ISavingsPanelProps>;
+    addAccountFunction: (newAccount: ISavingsPanelProps) => void;
+}
+
+// Used to fill in panel data in SavingsAccounts component. 
+export interface IAccountsData {
     accountsData: Array<ISavingsPanelProps>;
 }
