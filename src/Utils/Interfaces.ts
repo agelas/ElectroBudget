@@ -90,3 +90,7 @@ export interface ISavingsData {
 export interface IAccountsData {
     accountsData: Array<ISavingsPanelProps>;
 }
+
+export interface ISavingsForm {
+    addAccountFunction: (newAccount: ISavingsPanelProps) => void;
+}
