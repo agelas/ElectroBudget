@@ -10,6 +10,15 @@ export function SavingsAccountForm({ addAccountFunction }: ISavingsForm) {
             goal: 0,
             currentValue: 0,
         },
+        validate: (values) => ({
+            goal: values.goal === undefined ? "Goal is required" : null,
+            currentValue:
+                values.currentValue === undefined
+                    ? "Value is required"
+                    : values.currentValue > values.goal
+                    ? "Value should not exceed goal"
+                    : null,
+        }),
     });
 
     const handleSubmit = (values: typeof form.values) => {
