@@ -54,7 +54,7 @@ export function SavingsAccountForm({ addAccountFunction }: ISavingsForm) {
                     {...form.getInputProps("currentValue")}
                 />
                 <Group position='center' mt='md'>
-                    <Button type='submit'>Submit</Button>
+                    <Button type='submit' color='savings-purple'>Submit</Button>
                 </Group>
             </form>
         </Box>
