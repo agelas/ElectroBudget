@@ -15,6 +15,18 @@ function MainApp() {
     const [dataLoaded, setDataLoaded] = useState<boolean>(false);
     const [payCheckOffset, setPayCheckOffset] = useState(0);
 
+    window.addEventListener('beforeunload', (e) => {
+        e.preventDefault();
+
+        window.api.saveData(appData).then((response: any) => {
+            if (response.success) {
+                console.log('Data saved successfully');
+            } else {
+                console.error('Failed to save data: ', response.error);
+            }
+        });
+    });
+    
     useEffect(() => {
         async function fetchData() {
             try {
