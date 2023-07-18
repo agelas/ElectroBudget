@@ -17,7 +17,7 @@ export default function EssentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#50f15B" : "#F89E8C",
+                    backgroundColor: colorScheme === "dark" ? "#3CB371" : "#7FFFD4",
                 })}
             >
                 {" "}
@@ -27,7 +27,7 @@ export default function EssentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#50f15B" : "#F89E8C",
+                    backgroundColor: colorScheme === "dark" ? "#3CB371" : "#7FFFD4",
                 })}
             >
                 {" "}
@@ -37,7 +37,7 @@ export default function EssentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#50f15B" : "#F89E8C",
+                    backgroundColor: colorScheme === "dark" ? "#3CB371" : "#7FFFD4",
                 })}
             >
                 {" "}
@@ -47,7 +47,7 @@ export default function EssentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#50f15B" : "#F89E8C",
+                    backgroundColor: colorScheme === "dark" ? "#3CB371" : "#7FFFD4",
                 })}
             >
                 <PayPeriodToggle />

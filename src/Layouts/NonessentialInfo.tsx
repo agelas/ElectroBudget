@@ -17,7 +17,7 @@ export default function NonessentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#5FB7BF" : theme.colors.pink[4],
+                    backgroundColor: colorScheme === "dark" ? "#6495ED" : "#40E0D0",
                 })}
             >
                 {" "}
@@ -27,7 +27,7 @@ export default function NonessentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#5FB7BF" : theme.colors.pink[4],
+                    backgroundColor: colorScheme === "dark" ? "#6495ED" : "#40E0D0",
                 })}
             >
                 {" "}
@@ -37,7 +37,7 @@ export default function NonessentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#5FB7BF" : theme.colors.pink[4],
+                    backgroundColor: colorScheme === "dark" ? "#6495ED" : "#40E0D0",
                 })}
             >
                 {" "}
@@ -47,7 +47,7 @@ export default function NonessentialInfo(props: IHeaderProps) {
                 radius='md'
                 p='md'
                 sx={(theme) => ({
-                    backgroundColor: colorScheme === "dark" ? "#5FB7BF" : theme.colors.pink[4],
+                    backgroundColor: colorScheme === "dark" ? "#6495ED" : "#40E0D0",
                 })}
             >
                 <PayPeriodToggle />

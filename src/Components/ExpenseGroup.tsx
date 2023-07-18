@@ -11,14 +11,14 @@ function NonEssentialToggle(props: any) {
         <Switch
             checked={checked}
             onChange={(event) => setChecked(event.currentTarget.checked)}
-            color='cyan'
+            color='nonessential-teal'
             label='Purchased'
         />
     );
 }
 
 function EssentialRecurringToggle() {
-    return <Switch color='cyan' label='Active' />;
+    return <Switch color='essential-green' label='Active' />;
 }
 
 export default function ExpenseGroup(props: IExpenseGroupProps) {
@@ -29,9 +29,9 @@ export default function ExpenseGroup(props: IExpenseGroupProps) {
                     <ActionIcon>
                         {/* NonEssential is coffee, Essential is Lifebuoy because these expenses should be to keep your life afloat */}
                         {props.expenseType === ExpenseInputType.NonEssential ? (
-                            <Coffee color='#5fb7bf' />
+                            <Coffee color='#6495ED' />
                         ) : (
-                            <Lifebuoy color='#50f15b' />
+                            <Lifebuoy color='#3CB371' />
                         )}
                     </ActionIcon>
                     <Text>{props.name}</Text>

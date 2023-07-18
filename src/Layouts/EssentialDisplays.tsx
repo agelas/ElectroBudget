@@ -17,8 +17,8 @@ import { Categories, ExpenseInputType } from "../Utils/Enums";
 import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: IAppData) {
-    const dominantColor: string = "#50f15b";
-    const accentColor: string = "#b8f9bd";
+    const dominantColor: string = "#3CB371";
+    const accentColor: string = "#7FFFD4";
 
     const context = useContext(PayContext);
 
@@ -62,8 +62,8 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
         ringData = {
             total: totalAllocation,
             spent: currSpent,
-            totalColor: accentColor,
-            spentColor: dominantColor,
+            totalColor: dominantColor,
+            spentColor: accentColor,
         };
         stackData = { expenditures: essentialExpenses, displayType: "Essential" };
     }

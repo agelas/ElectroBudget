@@ -9,8 +9,8 @@ export default function App() {
     return(
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <MantineProvider theme={{ colorScheme, colors: {
-                'nonessential-teal': ['#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf', '#5fb7bf'],
-                'essential-green': ['#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b', '#50f15b'],
+                'nonessential-teal': ['#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED', '#6495ED'],
+                'essential-green': ['#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371', '#3CB371'],
                 'savings-purple': ['#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5', '#9b6bf5']
             } }} withGlobalStyles withNormalizeCSS>
                 <MainApp />

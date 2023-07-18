@@ -18,8 +18,8 @@ import { Categories, ExpenseInputType } from "../Utils/Enums";
 import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function NonessentialDisplays({ appData, addExpenseItem }: IAppData) {
-    const dominantColor: string = "#5fb7bf";
-    const accentColor: string = "white";
+    const dominantColor: string = "#6495ED";
+    const accentColor: string = "#40E0D0";
 
     const context = useContext(PayContext);
 
@@ -32,7 +32,7 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
     let graphData: IGraphProps = {
         payPeriods: [],
         paySpent: [],
-        payColor: "#5fb7bf",
+        payColor: dominantColor,
         spentColor: accentColor,
     };
     let stackData: ICostStack = {
@@ -64,8 +64,8 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
         ringData = {
             total: totalAllocation,
             spent: currSpent,
-            totalColor: dominantColor,
-            spentColor: accentColor,
+            totalColor: accentColor,
+            spentColor: dominantColor,
         };
     }
 
