@@ -19,7 +19,7 @@ export function computeDiscretionaryToDate(dataArray: any[]): number {
     }
 
     function calcDiscretionarySum(item: any): number {
-        let percentages = getNestedObject(item, ["Breakdown"]);
+        let percentages = getNestedObject(item, ["Allocations"]);
         let multiplier = percentages[1]; // The % of the paycheck allocated for nonessentials is the second number in that array
         return (sum += multiplier * getNestedObject(item, ["PaycheckAmount"]));
     }
@@ -32,7 +32,7 @@ export function computeAvailableNow(dataArray: any[]): number {
 
     try {
         let lastDoc = dataArray[dataArray.length - 1];
-        let percentages = getNestedObject(lastDoc, ["Breakdown"]);
+        let percentages = getNestedObject(lastDoc, ["Allocations"]);
         let multiplier = percentages[1];
         let currentNonessentialAmount = +(multiplier * getNestedObject(lastDoc, ["PaycheckAmount"])).toFixed(2);
 
@@ -52,7 +52,7 @@ export function formPayArray(dataArray: any[]): Array<any> {
         paycheckConstraint = dataArray.length - 7;
     }
     for (let i = paycheckConstraint; i < dataArray.length; i++) {
-        let percentages = getNestedObject(dataArray[i], ["Breakdown"]);
+        let percentages = getNestedObject(dataArray[i], ["Allocations"]);
         let multiplier = percentages[0];
         payArray.push({ x: i + 1, y: multiplier * getNestedObject(dataArray[i], ["PaycheckAmount"]) });
     }
@@ -83,7 +83,7 @@ export function formGraphArray(
         if (expenseCategory !== Categories.None && !retrieveAllocation) {
             value = getCurrentSpentFromObject(dataArray[i], expenseCategory);
         } else {
-            const percentages = getNestedObject(dataArray[i], ["Breakdown"]);
+            const percentages = getNestedObject(dataArray[i], ["Allocations"]);
             const multiplier = percentages[expenseCategory];
             value = multiplier * getNestedObject(dataArray[i], ["PaycheckAmount"]);
         }
@@ -153,7 +153,7 @@ export function getTotalAmount(dataArray: any[], category: Categories, offset: n
     if (dataArray.length > 0) {
         let doc = dataArray[dataArray.length - 1 - offset];
         pay = getNestedObject(doc, ["PaycheckAmount"]);
-        let percentages = getNestedObject(doc, ["Breakdown"]);
+        let percentages = getNestedObject(doc, ["Allocations"]);
         multiplier = percentages[category];
     }
 
