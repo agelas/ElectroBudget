@@ -6,7 +6,7 @@ import EssentialBroker from "./EssentialBroker";
 import SavingsBroker from "./SavingsBroker";
 import { PayContext } from "../Utils/PayContext";
 import { useEffect, useState } from "react";
-import { ISavingsPanelProps } from "../Utils/Interfaces";
+import { IAllocations, ISavingsPanelProps } from "../Utils/Interfaces";
 
 function MainApp() {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -15,18 +15,18 @@ function MainApp() {
     const [dataLoaded, setDataLoaded] = useState<boolean>(false);
     const [payCheckOffset, setPayCheckOffset] = useState(0);
 
-    window.addEventListener('beforeunload', (e) => {
+    window.addEventListener("beforeunload", (e) => {
         e.preventDefault();
 
         window.api.saveData(appData).then((response: any) => {
             if (response.success) {
-                console.log('Data saved successfully');
+                console.log("Data saved successfully");
             } else {
-                console.error('Failed to save data: ', response.error);
+                console.error("Failed to save data: ", response.error);
             }
         });
     });
-    
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -81,6 +81,17 @@ function MainApp() {
             );
         }
         console.log("Attempt at delete update");
+        setAppData(updatedData);
+    };
+
+    const updateAllocations = (newAllocations: IAllocations) => {
+        const updatedData = [...appData];
+        const lastIndex = updatedData.length - 1;
+        const targetObject = updatedData[lastIndex];
+
+        if (lastIndex !== -1) {
+            targetObject.Allocations = newAllocations;
+        }
         setAppData(updatedData);
     };
 

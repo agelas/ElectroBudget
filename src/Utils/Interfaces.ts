@@ -91,6 +91,12 @@ export interface IAccountsData {
     accountsData: Array<ISavingsPanelProps>;
 }
 
+// All that's needed to add a new savings account.
 export interface ISavingsForm {
     addAccountFunction: (newAccount: ISavingsPanelProps) => void;
+}
+
+// Used to update allocations to different expense groups
+export interface IAllocations {
+    allocations: Array<number>;
 }
