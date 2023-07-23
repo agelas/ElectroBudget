@@ -11,7 +11,27 @@
 A budgetting app running on Electron. The intention is to let users keep track of money going into Essentials, Non-Essentials, and Savings. Data is pulled from a JSON file so everything is kept local.  
 
 ## Usage
-This project is intended to be used on a wide monitor. In the same folder as your project, there needs to be a folder called `Data` where a JSON file called `data.json` should be located. 
+This project is intended to be used on a wide monitor. In the same folder as your project, there needs to be a folder called `Data` where a JSON file called `data.json` should be located. The JSON schema looks like
+```JSON
+{
+    "PaycheckNum": number,
+    "Date": string, // In yyyy-mm-dd format
+    "PaycheckAmount": number,
+    "Allocations": Array[number, number, number], // Should add up to 1
+    "ExpenseItems": Array[{
+        "Type": string, // "Essential" or "NonEssential"
+        "Name": string,
+        "Cost": number,
+        "Active": bool,
+    }],
+    "SavingsAccounts": Array[{
+        "Account": string,
+        "Type": string,
+        "Goal": number,
+        "CurrentValue": number,
+    }]
+}
+```
 
 ## Available Scripts
 
