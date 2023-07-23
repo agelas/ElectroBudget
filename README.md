@@ -12,7 +12,7 @@ A budgetting app running on Electron. The intention is to let users keep track o
 
 ## Usage
 This project is intended to be used on a wide monitor. In the same folder as your project, there needs to be a folder called `Data` where a JSON file called `data.json` should be located. The JSON schema looks like
-```JSON
+``` 
 {
     "PaycheckNum": number,
     "Date": string, // In yyyy-mm-dd format
