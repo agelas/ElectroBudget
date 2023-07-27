@@ -116,9 +116,8 @@ function expenseEnumConverter(category: Categories): string {
 export function getCurrentSpent(dataArray: any[], category: Categories, offset: number): number {
     let expenseArray = [];
     let spent = 0;
-    console.log(dataArray.length);
+   
     if (dataArray.length > 0) {
-        console.log('here')
         let doc = dataArray[dataArray.length - 1 - offset];
         expenseArray = getNestedObject(doc, ["ExpenseItems"]);
         var filteredExpenseArray = expenseArray.filter(
