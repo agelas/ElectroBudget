@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Group, ActionIcon, Text, Paper, Switch } from "@mantine/core";
 import { Coffee, Lifebuoy } from "tabler-icons-react";
-import { ExpenseInputType } from "../Utils/Enums";
+import { ExpenseType } from "../Utils/Enums";
 import { IExpenseGroupProps } from "../Utils/Interfaces";
 
 function NonEssentialToggle(props: any) {
@@ -28,7 +28,7 @@ export default function ExpenseGroup(props: IExpenseGroupProps) {
                 <Group>
                     <ActionIcon>
                         {/* NonEssential is coffee, Essential is Lifebuoy because these expenses should be to keep your life afloat */}
-                        {props.expenseType === ExpenseInputType.NonEssential ? (
+                        {props.expenseType === ExpenseType.NonEssential ? (
                             <Coffee color='#6495ED' />
                         ) : (
                             <Lifebuoy color='#3CB371' />
@@ -38,7 +38,7 @@ export default function ExpenseGroup(props: IExpenseGroupProps) {
                 </Group>
                 <Group position='right'>
                     {props.expenseType === "NonEssential" && <NonEssentialToggle active={props.active} />}
-                    {props.expenseType === ExpenseInputType.Essential && <EssentialRecurringToggle />}
+                    {props.expenseType === ExpenseType.Essential && <EssentialRecurringToggle />}
                     <Text>$ {props.cost}</Text>
                 </Group>
             </Group>

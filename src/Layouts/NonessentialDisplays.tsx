@@ -14,7 +14,7 @@ import {
 } from "../Utils/ParsingFunctions";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
-import { Categories, ExpenseInputType } from "../Utils/Enums";
+import { Categories, ExpenseType } from "../Utils/Enums";
 import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function NonessentialDisplays({ appData, addExpenseItem }: IAppData) {
@@ -37,7 +37,7 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
     };
     let stackData: ICostStack = {
         expenditures: [],
-        displayType: "NonEssential",
+        displayType: ExpenseType.NonEssential,
     };
     let ringData: IRingProps = {
         total: 0,
@@ -60,7 +60,7 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
             payColor: dominantColor,
             spentColor: accentColor,
         };
-        stackData = { expenditures: expenses, displayType: "NonEssential" };
+        stackData = { expenditures: expenses, displayType: ExpenseType.NonEssential };
         ringData = {
             total: totalAllocation,
             spent: currSpent,
@@ -136,7 +136,7 @@ export default function NonessentialDisplays({ appData, addExpenseItem }: IAppDa
                         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[1],
                     })}
                 >
-                    <Inputter ExpenseType={ExpenseInputType.NonEssential} InputFunction={addExpenseItem} />
+                    <Inputter ExpenseType={ExpenseType.NonEssential} InputFunction={addExpenseItem} />
                 </Paper>
             </Grid.Col>
         </Grid>

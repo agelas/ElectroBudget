@@ -1,5 +1,5 @@
 import React from "react";
-import { ExpenseInputType } from "./Enums";
+import { ExpenseType } from "./Enums";
 
 export interface PayCheckContextType {
     payCheckOffset: number;
@@ -27,14 +27,14 @@ export interface IHeaderProps {
 // to app data.
 // Used in Inputter, ExpenseInput.
 export interface IExpenseInput {
-    ExpenseType: ExpenseInputType;
+    ExpenseType: ExpenseType;
     InputFunction: (newItem: any) => void;
 }
 
 // All the fields needed to render an expense group in the cost stack.
 // Used in ExpenseGroup.
 export interface IExpenseGroupProps {
-    expenseType: ExpenseInputType;
+    expenseType: ExpenseType;
     name: string;
     cost: number;
     active: boolean;
@@ -42,11 +42,10 @@ export interface IExpenseGroupProps {
 }
 
 // Takes in an array of expenditures extracted from app data.
-// TODO: Use ExpenseType instead of a string for displayType.
 // Used in CostStack, EssentialDisplays, NonessentialDisplays.
 export interface ICostStack {
     expenditures: Array<any>;
-    displayType: string;
+    displayType: ExpenseType;
 }
 
 // All the fields necessary for rendering the graphs used from react-vis.

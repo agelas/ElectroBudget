@@ -1,4 +1,6 @@
-export enum ExpenseInputType {
+// This is used to filter expense types in the expense stack.
+// Has to be a string because that's what the .Type field is.
+export enum ExpenseType {
     Essential = "Essential",
     NonEssential = "NonEssential",
 }

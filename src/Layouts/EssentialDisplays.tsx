@@ -13,7 +13,7 @@ import CostStack from "../Components/CostStack";
 import Inputter from "../Components/Inputter";
 import { PayContext } from "../Utils/PayContext";
 import { useContext } from "react";
-import { Categories, ExpenseInputType } from "../Utils/Enums";
+import { Categories, ExpenseType } from "../Utils/Enums";
 import { ICostStack, IAppData, IGraphProps, IRingProps } from "../Utils/Interfaces";
 
 export default function EssentialDisplays({ appData, addExpenseItem }: IAppData) {
@@ -42,7 +42,7 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
     };
     let stackData: ICostStack = {
         expenditures: [],
-        displayType: "Essential",
+        displayType: ExpenseType.Essential,
     };
 
     if (appData) {
@@ -65,7 +65,7 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
             totalColor: dominantColor,
             spentColor: accentColor,
         };
-        stackData = { expenditures: essentialExpenses, displayType: "Essential" };
+        stackData = { expenditures: essentialExpenses, displayType: ExpenseType.Essential };
     }
 
     return (
@@ -125,7 +125,7 @@ export default function EssentialDisplays({ appData, addExpenseItem }: IAppData)
                         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[1],
                     })}
                 >
-                    <Inputter ExpenseType={ExpenseInputType.Essential} InputFunction={addExpenseItem} />
+                    <Inputter ExpenseType={ExpenseType.Essential} InputFunction={addExpenseItem} />
                 </Paper>
             </Grid.Col>
         </Grid>

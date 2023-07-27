@@ -1,4 +1,4 @@
-import { Categories, ExpenseInputType } from "./Enums";
+import { Categories, ExpenseType } from "./Enums";
 import { ISavingsPanelProps } from "./Interfaces";
 import { getNestedObject } from "./NestedAccess";
 
@@ -101,12 +101,12 @@ export function getExpenseItems(dataArray: any[], offset: number): Array<any> {
     return expenseArray;
 }
 
-// Converts a Categories enum to ExpenseInputType enum
+// Converts a Categories enum to ExpenseType enum
 function expenseEnumConverter(category: Categories): string {
     if (category === Categories.Essential) {
-        return ExpenseInputType.Essential;
+        return ExpenseType.Essential;
     } else if (category === Categories.NonEssential) {
-        return ExpenseInputType.NonEssential;
+        return ExpenseType.NonEssential;
     }
 
     return "";
