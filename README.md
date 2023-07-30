@@ -8,7 +8,7 @@
 </div>
 
 ## ElectroBudget
-A budgetting app running on Electron. The intention is to let users keep track of money going into Essentials, Non-Essentials, and Savings. Data is pulled from a JSON file so everything is kept local.  
+A budgetting app running on Electron. The intention is to let users keep track of money spent on essentials and non-essentials, as well as what's going into their savings accounts. Data is pulled from a JSON file so everything is kept local.  
 
 ## Usage
 This project is intended to be used on a wide monitor. In the same folder as your project, there needs to be a folder called `Data` where a JSON file called `data.json` should be located. The JSON schema looks like
