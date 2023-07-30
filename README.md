@@ -17,7 +17,7 @@ This project is intended to be used on a wide monitor. In the same folder as you
     "PaycheckNum": number,
     "Date": string, // In yyyy-mm-dd format
     "PaycheckAmount": number,
-    "Allocations": Array[number, number, number], // Should add up to 1
+    "Allocations": Array[number, number, number], // Should add up to 1, order is [Essential %, NonEssential %, Savings %] in decimal format
     "ExpenseItems": Array[{
         "Type": string, // "Essential" or "NonEssential"
         "Name": string,
